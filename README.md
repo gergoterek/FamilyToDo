@@ -6,10 +6,21 @@ Olyan webes alkalmazás elkészítése, amellyel bejelentezett felhasználókén
 
 
 Funkcionális követelmények:
-Felhasználóként szeretnék felvinni egy feladatot, hogy a többiek meg tudják csinálni --> Feladat felvétele
-Felhasználóként szeretnék visszajelzést kapni, hogy a feladat milyen státuszban van. --> Feladatok listázása
-Felhasználóként szeretnék megjegyzést fűzni egy feladathoz vagy módosítani azután is, hogy felvettem. --> Feladatok history.
-Operátorként szeretném látni a hibalistát.
-Operátorként szeretnék egy hibát megtekinteni és státuszát váltani. Státuszváltáskor kötelező üzenetet megadni.
-A felhasználók és operátorok bejelentkezés után használhatják a funkciókat. Ezeket egy előre megadott listából, vagy LDAP - authentikációval kell elvégezni.
-A főoldalon az alkalmazás ismertetése, esetleg statisztikák jelenik meg.
+- Felhasználóként szeretnék felvinni egy feladatot, hogy a többiek meg tudják csinálni --> Feladat felvétele
+- Felhasználóként szeretnék visszajelzést kapni, hogy a feladat milyen státuszban van. --> Feladatok listázása
+- Felhasználóként szeretnék megjegyzést fűzni egy feladathoz vagy módosítani azután is, hogy felvettem. --> Feladatok history.
+- Felhasználóként szeretnék egy feladattáblához hozzáfűzni, illetve státuszát elvégzettként megjelölni
+- Adminisztrátorként szeretném látni a felhasználók jogosultságát és módosítani azt.
+- A felhasználók és adminok bejelentkezés után használhatják a funkciókat. Ezeket egy előre megadott listából, vagy LDAP - authentikációval kell elvégezni.
+- A főoldalon az authentikáció után a feladattáblák találhatóak a képernyőn.
+
+
+Nem funkcionális követelmények:
+- Felhasználóbarát, ergonomikus elrendezés és kinézet.
+- Gyors működés.
+- Biztonságos működés: jelszavak tárolása, funkciókhoz való hozzáférés.
+
+Szerepkörök:
+
+- felhasználó: a vendég szerepkörén túl hibát tud bejelenteni, és saját bejelentett hibáit megtekinteni.
+- admin: a felhasználó szerepkörén túl a jogosultságok módosítását tudja elvégezni, új embert felvenni.
