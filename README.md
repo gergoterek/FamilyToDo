@@ -24,3 +24,9 @@ Szerepkörök:
 
 - felhasználó: a vendég szerepkörén túl hibát tud bejelenteni, és saját bejelentett hibáit megtekinteni.
 - admin: a felhasználó szerepkörén túl a jogosultságok módosítását tudja elvégezni, új embert felvenni.
+
+
+
+Csapat:
+- Lacza Péter(Neptun kód:)
+- Terék Gergő(Neptun kód: SDNMSG)
