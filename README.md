@@ -28,5 +28,5 @@ Szerepkörök:
 
 
 Csapat:
-- Lacza Péter(Neptun kód:)
+- Lacza Péter(Neptun kód: LRRVU8)
 - Terék Gergő(Neptun kód: SDNMSG)
