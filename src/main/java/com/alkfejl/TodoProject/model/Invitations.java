@@ -1,37 +1,27 @@
 package com.alkfejl.TodoProject.model;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.util.Date;
 
 @Entity
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class User {
-
+public class Invitations {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
     @Column(nullable = false)
-    private String username;
+    private Integer invitationCode;
 
-    @Column(nullable = false)
-    private String password;
-
-    @JsonIgnore
-    @ManyToOne
+    @OneToOne
     private Family family;
 
     @Column(nullable = false)
-    @Enumerated(EnumType.STRING)
-    private Role role;
-
-    public enum Role {
-        ROLE_GUEST, ROLE_USER, ROLE_ADMIN
-    }
+    private Date expires;
 }

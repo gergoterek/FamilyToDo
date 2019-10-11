@@ -6,32 +6,27 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class User {
+public class Family {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
     @Column(nullable = false)
-    private String username;
-
-    @Column(nullable = false)
-    private String password;
+    private String familyName;
 
     @JsonIgnore
-    @ManyToOne
-    private Family family;
+    @OneToMany(mappedBy = "family")
+    private List<User> users;
 
-    @Column(nullable = false)
-    @Enumerated(EnumType.STRING)
-    private Role role;
+    @JsonIgnore
+    @OneToMany(mappedBy = "family")
+    private List<Task> tasks;
 
-    public enum Role {
-        ROLE_GUEST, ROLE_USER, ROLE_ADMIN
-    }
 }
