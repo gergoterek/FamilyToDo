@@ -23,8 +23,7 @@ public class User {
     @Column(nullable = false)
     private String password;
 
-    @JsonIgnore
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.EAGER)
     private Family family;
 
     @Column(nullable = false)

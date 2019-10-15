@@ -9,7 +9,6 @@ import java.util.List;
 import java.util.Optional;
 
 @Repository
-public interface FamilyRepository extends CrudRepository<User, Integer> {
-    //Optional<User> findByUsername(String username);
-    List<User> findAllByFamilyName(String familyName);
+public interface FamilyRepository extends CrudRepository<Family, Integer> {
+    List<Family> findAll();
 }
