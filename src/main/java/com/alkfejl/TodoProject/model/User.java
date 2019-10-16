@@ -1,6 +1,5 @@
 package com.alkfejl.TodoProject.model;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -23,8 +22,9 @@ public class User {
     @Column(nullable = false)
     private String password;
 
-    @ManyToOne(fetch = FetchType.EAGER)
+    @ManyToOne
     private Family family;
+
 
     @Column(nullable = false)
     @Enumerated(EnumType.STRING)

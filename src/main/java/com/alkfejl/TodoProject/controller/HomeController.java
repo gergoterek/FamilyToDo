@@ -48,13 +48,6 @@ public class HomeController {
 
     @GetMapping("/tasks")
     public List<Task> getAllTask(){
-        Integer familyId = actUser.getUser().getFamily().getId();
-        System.out.println(familyId);
-        return taskRepository.findAllByFamilyId(familyId);
-    }
-
-    @GetMapping("szia")
-    public String szia(){
-        return "Szia világ!";
+        familyRepository.findById(actUser.getUser().getFamily().getId());
     }
 }
