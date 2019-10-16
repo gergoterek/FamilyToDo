@@ -19,7 +19,7 @@ public class Family {
     private Integer id;
 
     @Column(nullable = false)
-    private String familyName;
+    private String name;
 
     @JsonIgnore
     @OneToMany(mappedBy = "family")

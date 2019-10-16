@@ -12,5 +12,5 @@ import java.util.Optional;
 @Repository
 public interface FamilyRepository extends CrudRepository<Family, Integer> {
     List<Family> findAll();
-    Optional<Task> findAllTaskBy(Integer id);
+    //List<User> findAllUser();
 }
