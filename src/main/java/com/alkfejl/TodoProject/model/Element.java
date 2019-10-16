@@ -1,9 +1,9 @@
 package com.alkfejl.TodoProject.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.hibernate.annotations.ManyToAny;
 
 import javax.persistence.*;
 
@@ -22,6 +22,7 @@ public class Element {
     @Column(nullable = false)
     private String elementStatus;
 
+    @JsonIgnore
     @ManyToOne
     private Task task;
 }
