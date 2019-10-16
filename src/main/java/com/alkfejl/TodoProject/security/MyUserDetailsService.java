@@ -19,9 +19,6 @@ import java.util.Set;
 public class MyUserDetailsService implements UserDetailsService {
 
     @Autowired
-    private AuthenticatedUser authenticatedUser;
-
-    @Autowired
     private UserRepository userRepository;
 
     @Override
@@ -32,7 +29,6 @@ public class MyUserDetailsService implements UserDetailsService {
             throw new UsernameNotFoundException(username);
         }
         User user = oUser.get();
-        //authenticatedUser.setUser(user);
         Set<GrantedAuthority> grantedAuthorities = new HashSet<>();
         grantedAuthorities.add(new SimpleGrantedAuthority(user.getRole().toString()));
 

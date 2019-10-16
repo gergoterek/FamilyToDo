@@ -1,6 +1,5 @@
 package com.alkfejl.TodoProject.controller;
 
-import com.alkfejl.TodoProject.model.Element;
 import com.alkfejl.TodoProject.model.Family;
 import com.alkfejl.TodoProject.model.Task;
 import com.alkfejl.TodoProject.model.User;
@@ -25,7 +24,7 @@ public class HomeController {
 
     @GetMapping("")
     public String currentUserName() {
-        return userService.getActUser().getUsername();
+        return "Welcome "+userService.getActUser().getUsername();
     }
 
     @GetMapping("/family")
@@ -41,6 +40,4 @@ public class HomeController {
         Family myFamily = familyService.getMyFamily(actUser);
         return myFamily.getTasks();
     }
-
-
 }

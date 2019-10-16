@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.Optional;
 
 @RestController
-@RequestMapping("/users")
+@RequestMapping("/registration")
 public class UserController {
     @Autowired
     private UserRepository userRepository;
@@ -32,10 +32,9 @@ public class UserController {
         return ResponseEntity.ok(userRepository.save(user));
     }
 
-    @PostMapping("login")
-    public ResponseEntity login(@RequestBody User user) {
-        return ResponseEntity.ok().build();
-    }
-
+    //@PostMapping("login")
+    //public ResponseEntity login(@RequestBody User user) {
+    //    return ResponseEntity.ok().build();
+    //}
 
 }
