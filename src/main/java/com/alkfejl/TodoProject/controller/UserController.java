@@ -1,40 +1,33 @@
 package com.alkfejl.TodoProject.controller;
 
+import com.alkfejl.TodoProject.model.Family;
 import com.alkfejl.TodoProject.model.User;
-import com.alkfejl.TodoProject.repository.UserRepository;
+import com.alkfejl.TodoProject.service.FamilyService;
+import com.alkfejl.TodoProject.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
-import java.util.Optional;
+import java.util.List;
 
 @RestController
-@RequestMapping("/registration")
+@RequestMapping("/user")
 public class UserController {
     @Autowired
-    private UserRepository userRepository;
+    private UserService userService;
 
     @Autowired
-    private BCryptPasswordEncoder passwordEncoder;
+    private FamilyService familyService;
 
-    @PostMapping("")
-    public ResponseEntity<User> register(@RequestBody User user) {
-        Optional<User> oUser = userRepository.findByUsername(user.getUsername());
-        if (oUser.isPresent()) {
-            return ResponseEntity.badRequest().build();
-        }
-        user.setPassword(passwordEncoder.encode(user.getPassword()));
-        user.setRole(User.Role.ROLE_USER);
-        return ResponseEntity.ok(userRepository.save(user));
+    @GetMapping("")
+    public List<User> getMyFamilyMembers(){
+        User actUser = userService.getActUser();
+        Family myFamily = familyService.getMyFamily(actUser);
+        return myFamily.getUsers();
     }
 
-    //@PostMapping("login")
-    //public ResponseEntity login(@RequestBody User user) {
-    //    return ResponseEntity.ok().build();
-    //}
-
+    @PostMapping("/registration")
+    public ResponseEntity<User> register(@RequestBody User user) {
+        return userService.register(user);
+    }
 }

@@ -1,5 +1,6 @@
 package com.alkfejl.TodoProject.service;
 
+import com.alkfejl.TodoProject.model.Element;
 import com.alkfejl.TodoProject.model.Task;
 import com.alkfejl.TodoProject.model.User;
 import com.alkfejl.TodoProject.repository.ElementRepository;
@@ -7,7 +8,6 @@ import com.alkfejl.TodoProject.repository.TaskRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.PostMapping;
 
 import java.util.Optional;
 
@@ -25,7 +25,6 @@ public class TaskService {
     @Autowired
     UserService userService;
 
-    @PostMapping("/add")
     public ResponseEntity<Task> addTask(Task task) {
         Optional<Task> oTask = taskRepository.findByTaskName(task.getTaskName());
         if (oTask.isPresent()) {
@@ -41,5 +40,10 @@ public class TaskService {
         }
         elementRepository.saveAll(task.getElements());
         return ResponseEntity.ok(task);
+    }
+
+    public ResponseEntity<Element> addElement(Element element) {
+        //TODO: Nem írja bele az adatbázisba a hozzá tartozó TASK_ID-t!
+        return ResponseEntity.ok(elementRepository.save(element));
     }
 }
