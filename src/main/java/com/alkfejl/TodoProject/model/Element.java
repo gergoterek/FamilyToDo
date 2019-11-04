@@ -6,6 +6,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 
 @Entity
 @Data
@@ -19,8 +20,17 @@ public class Element {
     @Column(nullable = false)
     private String elementName;
 
-    @Column(nullable = false)
-    private String elementStatus;
+    /*@Column(nullable = false)
+    private String elementStatus;*/
+
+    @Column
+    @NotNull
+    @Enumerated(EnumType.STRING)
+    private ElementStatus elemntStatus;
+
+    public enum ElementStatus {
+        UNDONE, DONE
+    }
 
     @JsonIgnore
     @ManyToOne
