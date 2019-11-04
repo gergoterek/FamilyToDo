@@ -24,6 +24,7 @@ Nem funkcionális követelmények:
 Szerepkörök:
 
 - vendég: látja a bejelentkezési képernyőt, tud regisztrálni.
+- felhasználó: Látja a családjához tartozó táblákat és a feladatokat
 - admin: a felhasználó szerepkörén túl a jogosultságok módosítását tudja elvégezni, új embert meghívni.
 
 
