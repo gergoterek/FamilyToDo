@@ -10,7 +10,7 @@ INSERT INTO user (username, password, role, family_id) VALUES ('margit', '$2a$04
 INSERT INTO task (task_name, family_id) VALUES('Bevásárló lista',1);
 INSERT INTO task (task_name, family_id) VALUES('Bevásárló lista',2);
 
-INSERT INTO element(element_name, element_status, task_id) values('Tejföl','False',1);
-INSERT INTO element(element_name, element_status, task_id) values('Sajt','False',1);
+INSERT INTO element(element_name, element_status, task_id) values('Tejföl','UNDONE',1);
+INSERT INTO element(element_name, element_status, task_id) values('Sajt','UNDONE',1);
 
-INSERT INTO element(element_name, element_status, task_id) values('Kenyér','False',2);
+INSERT INTO element(element_name, element_status, task_id) values('Kenyér','DONE',2);

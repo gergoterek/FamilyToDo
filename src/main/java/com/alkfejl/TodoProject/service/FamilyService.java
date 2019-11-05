@@ -14,7 +14,7 @@ public class FamilyService {
     @Autowired
     FamilyRepository familyRepository;
 
-    public Family getMyFamily(User user) throws UsernameNotFoundException {
+    public Family getMyFamily(User user) throws UsernameNotFoundException {                     //Visszaadja melyik családhoz tartozik a user
         Optional<Family> oFamily = familyRepository.findById(user.getFamily().getId());
         if (!oFamily.isPresent()){
             throw new UsernameNotFoundException(user.getUsername());

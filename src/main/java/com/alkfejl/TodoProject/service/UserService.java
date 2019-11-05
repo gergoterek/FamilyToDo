@@ -20,7 +20,7 @@ public class UserService {
     @Autowired
     private BCryptPasswordEncoder passwordEncoder;
 
-    public ResponseEntity<User> register(User user) {
+    public ResponseEntity<User> register(User user) {                                               //Regisztráció
         Optional<User> oUser = userRepository.findByUsername(user.getUsername());
         if (oUser.isPresent()) {
             return ResponseEntity.badRequest().build();
@@ -30,7 +30,7 @@ public class UserService {
         return ResponseEntity.ok(userRepository.save(user));
     }
 
-    public User getActUser() throws UsernameNotFoundException {
+    public User getActUser() throws UsernameNotFoundException {                                     //
         Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         String userName = ((UserDetails)principal).getUsername();
         Optional<User> oUser = userRepository.findByUsername(userName);

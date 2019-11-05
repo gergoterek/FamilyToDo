@@ -34,12 +34,13 @@ public class TaskController {
     }
 
     @PostMapping("/add")
-    public ResponseEntity<Task> addTask(@RequestBody Task task) {
+    public ResponseEntity<Task> addTask(@RequestBody Task task) {                                               //Feladattábla hozzáadása
         return taskService.addTask(task);
     }
 
     @PostMapping("/addelement")
-    public ResponseEntity<Element> addElement(@RequestBody Element element) {
+    public ResponseEntity<Element> addElement(@RequestBody Element element) {                                   //Elem hozzáadása a táblához
         return taskService.addElement(element);
     }
+
 }

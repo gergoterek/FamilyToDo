@@ -25,7 +25,7 @@ public class TaskService {
     @Autowired
     UserService userService;
 
-    public ResponseEntity<Task> addTask(Task task) {
+    public ResponseEntity<Task> addTask(Task task) {                                        //Feladattábla hozzáadása
         Optional<Task> oTask = taskRepository.findByTaskName(task.getTaskName());
         if (oTask.isPresent()) {
             return ResponseEntity.badRequest().build();
@@ -42,7 +42,7 @@ public class TaskService {
         return ResponseEntity.ok(task);
     }
 
-    public ResponseEntity<Element> addElement(Element element) {
+    public ResponseEntity<Element> addElement(Element element) {                           //Elem hozzáadása a feladattáblához
         //TODO: Nem írja bele az adatbázisba a hozzá tartozó TASK_ID-t!
         return ResponseEntity.ok(elementRepository.save(element));
     }

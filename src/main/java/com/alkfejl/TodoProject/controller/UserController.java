@@ -20,14 +20,14 @@ public class UserController {
     private FamilyService familyService;
 
     @GetMapping("")
-    public List<User> getMyFamilyMembers(){
+    public List<User> getMyFamilyMembers(){                                                             //Összes családtag megadása
         User actUser = userService.getActUser();
         Family myFamily = familyService.getMyFamily(actUser);
         return myFamily.getUsers();
     }
 
     @PostMapping("/registration")
-    public ResponseEntity<User> register(@RequestBody User user) {
+    public ResponseEntity<User> register(@RequestBody User user) {                                      //Regisztráció
         return userService.register(user);
     }
 }

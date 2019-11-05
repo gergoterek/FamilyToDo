@@ -26,7 +26,7 @@ public class Element {
     @Column
     @NotNull
     @Enumerated(EnumType.STRING)
-    private ElementStatus elemntStatus;
+    private ElementStatus elementStatus;
 
     public enum ElementStatus {
         UNDONE, DONE
