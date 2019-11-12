@@ -5,13 +5,14 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.time.LocalDateTime;
 import java.util.Date;
 
 @Entity
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class Invitations {
+public class Invitation {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
@@ -19,9 +20,9 @@ public class Invitations {
     @Column(nullable = false)
     private Integer invitationCode;
 
-    @OneToOne
+    @ManyToOne
     private Family family;
 
     @Column(nullable = false)
-    private Date expires;
+    private LocalDateTime expire_date;
 }

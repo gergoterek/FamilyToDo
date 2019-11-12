@@ -29,4 +29,8 @@ public class Family {
     @OneToMany(mappedBy = "family")
     private List<Task> tasks;
 
+    @JsonIgnore
+    @OneToMany(mappedBy = "family")
+    private List<Invitation> invitations;
+
 }

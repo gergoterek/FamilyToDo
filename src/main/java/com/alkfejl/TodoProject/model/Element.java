@@ -20,9 +20,6 @@ public class Element {
     @Column(nullable = false)
     private String elementName;
 
-    /*@Column(nullable = false)
-    private String elementStatus;*/
-
     @Column
     @NotNull
     @Enumerated(EnumType.STRING)

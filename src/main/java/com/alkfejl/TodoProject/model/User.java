@@ -25,7 +25,6 @@ public class User {
     @ManyToOne
     private Family family;
 
-
     @Column(nullable = false)
     @Enumerated(EnumType.STRING)
     private Role role;
