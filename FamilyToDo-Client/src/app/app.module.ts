@@ -3,14 +3,20 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { TableListComponent } from './table-list/table-list.component';
+import { FamilyListComponent } from './family-list/family-list.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    TableListComponent,
+    FamilyListComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "family-to-do": {
+    "FamilyToDo-Client": {
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -13,7 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/family-to-do",
+            "outputPath": "dist/FamilyToDo-Client",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -24,6 +24,7 @@
               "src/assets"
             ],
             "styles": [
+              "src/custom-theme.scss",
               "src/styles.css"
             ],
             "scripts": []
@@ -63,18 +64,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "family-to-do:build"
+            "browserTarget": "FamilyToDo-Client:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "family-to-do:build:production"
+              "browserTarget": "FamilyToDo-Client:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "family-to-do:build"
+            "browserTarget": "FamilyToDo-Client:build"
           }
         },
         "test": {
@@ -111,15 +112,16 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "family-to-do:serve"
+            "devServerTarget": "FamilyToDo-Client:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "family-to-do:serve:production"
+              "devServerTarget": "FamilyToDo-Client:serve:production"
             }
           }
         }
       }
-    }},
-  "defaultProject": "family-to-do"
+    }
+  },
+  "defaultProject": "FamilyToDo-Client"
 }
