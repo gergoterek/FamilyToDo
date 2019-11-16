@@ -6,5 +6,9 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'FamilyToDo-Client';
+  currentPage: 'list' | 'landing' | 'form' = 'landing';
+
+  changePage(newPage: string) {
+    this.currentPage = newPage as any;
+  }
 }

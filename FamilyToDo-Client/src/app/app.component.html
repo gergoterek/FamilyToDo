@@ -1,10 +1,28 @@
-<mat-toolbar color="primary">
-  <button mat-button href="/">
+<mat-toolbar color="accent">
+  <button
+      mat-button
+      routerLink="/"
+  >
       <mat-icon>home</mat-icon>
-      Family TO-DO
+      Family TODO
   </button>
-  <button mat-button href="/tables">My tables</button>
-  <button mat-button href="/tables/add">New table</button>
+  <button
+      mat-button
+      routerLink="/tables"
+  >
+      My tables
+  </button>
+  <button
+      mat-button
+      routerLink="/family"
+  >
+      My Family
+  </button>
+  <button
+      mat-button
+      routerLink="/"
+  >
+      Log out
+  </button>
 </mat-toolbar>
-<app-family-list></app-family-list>
-<app-table-list></app-table-list>
+<router-outlet></router-outlet>
