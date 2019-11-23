@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 
+import { AuthService } from './auth.service';
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -7,6 +9,10 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   currentPage: 'list' | 'landing' | 'form' = 'landing';
+
+  constructor(
+    public authService: AuthService
+  ) {}
 
   changePage(newPage: string) {
     this.currentPage = newPage as any;

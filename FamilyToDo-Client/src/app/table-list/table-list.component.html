@@ -1,4 +1,4 @@
-<div>
+<!--<div style="padding-left: 3em;">
     <h1>My Tables</h1>
     <table visible="true">
         <tbody>        
@@ -6,23 +6,43 @@
                 <h3>Food list</h3>
             </tr>
             <table>
-                <tr>
-                    <td>Bread</td>
-                </tr>
-                <tr>
-                    <td>Milk</td>
-                </tr>
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
             </table>        
         </tbody>
     </table>
 </div>
-<div>
+<div style="padding-left: 3em;">
     <h3>Create new table</h3>
-    <form>
-        <mat-form-field>
-            <input matInput placeholder="Table name" value="">
-        </mat-form-field>
-        
-        <input type="submit" value="Create" />
+
+    <form #form="ngForm" (ngSubmit)="submitIssue(form.form)">
+        <div>
+          <mat-form-field>
+            <input
+                matInput
+                placeholder="Table name"
+                [(ngModel)]="table.title"
+                name="tablename"
+                required
+                #title="ngModel"
+            />
+            <mat-error *ngIf="title.invalid && (title.touched || title.dirty) && title.errors['required']">
+                Table name is required!
+            </mat-error>
+          </mat-form-field>
+        </div>
+
+
+
+
+
+        <div>
+            <button mat-raised-button color="primary">Create</button>
+        </div>
     </form>
 </div>
+-->

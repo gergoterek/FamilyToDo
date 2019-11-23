@@ -6,23 +6,30 @@
       <mat-icon>home</mat-icon>
       Family TODO
   </button>
-  <button
-      mat-button
-      routerLink="/tables"
-  >
-      My tables
-  </button>
-  <button
-      mat-button
-      routerLink="/family"
-  >
-      My Family
-  </button>
-  <button
-      mat-button
-      routerLink="/"
-  >
-      Log out
-  </button>
+  <ng-container
+        *ngIf="authService.isLoggedIn"
+    >
+
+    <button
+        mat-button
+        routerLink="/tables"
+    >
+        My tables
+    </button>
+    <button
+        mat-button
+        routerLink="/family"
+    >
+        My Family
+    </button>
+
+    <button mat-button (click)="authService.logout()">Logout</button>
+    </ng-container>
+
+    <ng-container
+        *ngIf="!authService.isLoggedIn"
+    >
+        <button mat-button routerLink="/login">Login</button>
+    </ng-container>
 </mat-toolbar>
 <router-outlet></router-outlet>
