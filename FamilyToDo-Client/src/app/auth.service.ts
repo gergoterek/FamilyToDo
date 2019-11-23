@@ -33,7 +33,7 @@ export class AuthService {
       password: password,
     };
     try {
-      const user = await (this.http.get('users/login').toPromise() as Promise<User>);
+      const user = await (this.http.get('user/login').toPromise() as Promise<User>);
       this.user.name = user.name;
       this.user.role = user.role;
       this.router.navigate(['/']);

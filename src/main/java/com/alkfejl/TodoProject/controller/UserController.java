@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@CrossOrigin(origins = "*")
+@CrossOrigin(origins = "*",  allowedHeaders = "*")
 @RestController
 @RequestMapping("/user")
 public class UserController {
@@ -31,4 +31,10 @@ public class UserController {
     public ResponseEntity<User> register(@RequestBody User user) {                                      //Regisztráció
         return userService.register(user);
     }
+
+    @GetMapping("/login")
+    public ResponseEntity<User> login() {
+        return ResponseEntity.ok(userService.getActUser());
+    }
+
 }
