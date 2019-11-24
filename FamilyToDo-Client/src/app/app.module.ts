@@ -23,6 +23,11 @@ import { LandingComponent } from './landing/landing.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { HeaderInterceptor } from './header-interceptor';
+import { ElementDetailComponent } from './element-detail/element-detail.component';
+import { ElementEditComponent } from './element-edit/element-edit.component';
+import { ElementNewComponent } from './element-new/element-new.component';
+import { ElementFormComponent } from './element-form/element-form.component';
+import { TableFormComponent } from './table-form/table-form.component';
 
 @NgModule({
   declarations: [
@@ -33,6 +38,11 @@ import { HeaderInterceptor } from './header-interceptor';
     LoginComponent,
     LandingComponent,
     LoginComponent,
+    ElementDetailComponent,
+    ElementEditComponent,
+    ElementNewComponent,
+    ElementFormComponent,
+    TableFormComponent,
   ],
   imports: [
     BrowserModule,

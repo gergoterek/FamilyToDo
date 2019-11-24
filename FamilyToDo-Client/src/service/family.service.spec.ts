@@ -1,8 +1,9 @@
 import { TestBed } from '@angular/core/testing';
 
 import { FamilyService } from './family.service';
+import { Family } from 'src/domain/family';
 
-describe('FamilyService', () => {
+describe('TableService', () => {
   beforeEach(() => TestBed.configureTestingModule({}));
 
   it('should be created', () => {

@@ -1,6 +1,6 @@
 <div>
-    <h1>My Family</h1>
-    <table visible="true">
+    <h3>Family members</h3>
+    <table>
         <thead>
             <tr>
                 <th>Name</th>
@@ -8,18 +8,15 @@
             </tr>
         </thead>
         <tbody>
-            <tr>
-                <td>Geri</td>
-                <td>Admin</td>
-            </tr>
-            <tr>
-                <td>Péter</td>
-                <td>Admin</td>
-            </tr>
-            <tr>
-                <td>Zoli</td>
-                <td>User</td>
-            </tr>
+            <ng-container>
+                <tr
+                    *ngFor="let family of familyService.getFamilyMembers"
+                    [routerLink]="['/', 'family', family.id]"
+                >
+                    <td>{{ family.name }}</td>
+                    <td>{{ family.role }}</td>
+                </tr>
+            </ng-container>
         </tbody>
     </table>
 </div>

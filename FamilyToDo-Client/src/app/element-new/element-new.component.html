@@ -1,0 +1,8 @@
+<div style="padding-left: 4em;">
+        <h3>New Element</h3>
+        <app-element-form
+            [element]="element"
+            [mode]="'create'"
+            (elementSubmit)="submitElement($event)"
+        ></app-element-form>
+    </div>

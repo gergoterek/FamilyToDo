@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-
+import { Table } from 'src/domain/table';
+import { TableService } from '../../service/table.service';
+import { FamilyService } from 'src/service/family.service';
 @Component({
   selector: 'app-family-list',
   templateUrl: './family-list.component.html',
@@ -7,9 +9,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FamilyListComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    public familyService: FamilyService
+  ) { }
 
   ngOnInit() {
+    this.familyService.getFamilyMembers();
   }
+
 
 }

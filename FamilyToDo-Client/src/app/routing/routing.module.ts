@@ -5,29 +5,41 @@ import { FamilyListComponent } from '../family-list/family-list.component';
 import { TableListComponent } from '../table-list/table-list.component';
 import { LoginComponent } from '../login/login.component';
 import { LandingComponent } from '../landing/landing.component';
+import { ElementEditComponent } from '../element-edit/element-edit.component';
+import { ElementDetailComponent } from '../element-detail/element-detail.component';
+import { ElementListComponent } from '../element-list/element-list.component';
 
-// import { IssueDetailComponent } from '../issue-detail/issue-detail.component';
 
 const routes: Routes = [
-  
-
+  {
+    path: '',
+    component: LandingComponent,
+    pathMatch: 'full'
+  },
   {
     path: 'tables',
     component: TableListComponent
   },
   {
-    path: 'family',
-    component: FamilyListComponent
+    path: 'elements',
+    component: ElementListComponent
   },
-  
+  {
+    path: 'elements/:id',
+    component: ElementDetailComponent
+  },
+  {
+    path: 'elements/:id/edit',
+    component: ElementEditComponent
+  },
   {
     path: 'login',
     component: LoginComponent
   },
-  /*{
-    path: 'issues/:id',
-    component: IssueDetailComponent
-  },*/
+  {
+    path: 'family',
+    component: FamilyListComponent
+  },
   {
     path: '**',
     redirectTo: '/',

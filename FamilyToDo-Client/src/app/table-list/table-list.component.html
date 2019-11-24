@@ -1,48 +1,33 @@
-<!--<div style="padding-left: 3em;">
-    <h1>My Tables</h1>
-    <table visible="true">
-        <tbody>        
-            <tr>
-                <h3>Food list</h3>
-            </tr>
-            <table>
-                <thead>
-                    <tr>
-                        <th>Name</th>
-                        <th>Status</th>
-                    </tr>
-                </thead>
-            </table>        
-        </tbody>
-    </table>
-</div>
+
+
 <div style="padding-left: 3em;">
-    <h3>Create new table</h3>
-
-    <form #form="ngForm" (ngSubmit)="submitIssue(form.form)">
+        <h2>My tasks</h2>
         <div>
-          <mat-form-field>
-            <input
-                matInput
-                placeholder="Table name"
-                [(ngModel)]="table.title"
-                name="tablename"
-                required
-                #title="ngModel"
-            />
-            <mat-error *ngIf="title.invalid && (title.touched || title.dirty) && title.errors['required']">
-                Table name is required!
-            </mat-error>
-          </mat-form-field>
         </div>
-
-
-
-
-
+        <table>
+            <tbody>
+                
+                <ng-container
+                    *ngIf="tableService.getTables.length > 0"
+                >
+                    <tr
+                        *ngFor="let table of tableService.getTables"
+                        [routerLink]="['/', 'tables', table.id]"
+                    >
+                        <td>{{ table.name }}</td>
+                    </tr>
+                </ng-container>
+                <tr
+                    *ngIf="tableService.getTables.length === 0"
+                >
+                    <td
+                        colspan="3"
+                    >No table:( Create one!</td>
+                </tr>
         <div>
-            <button mat-raised-button color="primary">Create</button>
+            <app-table-form></app-table-form>
         </div>
-    </form>
-</div>
--->
+            </tbody>
+        </table>
+    </div>
+    
