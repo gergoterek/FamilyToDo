@@ -10,9 +10,9 @@ import { TableService } from '../../service/table.service';
 export class TableListComponent implements OnInit {
 
 
-  // @Input() mode: 'create' | 'edit';
-  // @Input() table: Table;
-  // @Output() tableSubmit: EventEmitter<Table> = new EventEmitter();
+  @Input() mode: 'create' | 'edit';
+  @Input() table: Table;
+  @Output() tableSubmit: EventEmitter<Table> = new EventEmitter();
 
   
   constructor(
@@ -24,11 +24,11 @@ export class TableListComponent implements OnInit {
     
   }
 
-  // async submitTable(form: FormGroup) {
-  //   if (!form.valid) {
-  //     return;
-  //   }
-  //   this.tableSubmit.emit(form.getRawValue() as Table);
-  // }
+  async submitTable(form: FormGroup) {
+    if (!form.valid) {
+      return;
+    }
+    this.tableSubmit.emit(form.getRawValue() as Table);
+  }
 
 }
