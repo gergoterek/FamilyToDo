@@ -28,6 +28,7 @@ import { ElementEditComponent } from './element-edit/element-edit.component';
 import { ElementNewComponent } from './element-new/element-new.component';
 import { ElementFormComponent } from './element-form/element-form.component';
 import { TableFormComponent } from './table-form/table-form.component';
+import { TableNewComponent } from './table-new/table-new.component';
 
 @NgModule({
   declarations: [
@@ -43,6 +44,7 @@ import { TableFormComponent } from './table-form/table-form.component';
     ElementNewComponent,
     ElementFormComponent,
     TableFormComponent,
+    TableNewComponent,
   ],
   imports: [
     BrowserModule,

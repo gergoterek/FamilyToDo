@@ -7,8 +7,8 @@
             [(ngModel)]="table.taskName"
             name="taskName"
             required
-            #title="ngModel"
-            [disabled]="mode === 'edit'"
+            #taskName="ngModel"
+            [disabled]="role === 'ROLE_USER'"
         />
         
     </mat-form-field>

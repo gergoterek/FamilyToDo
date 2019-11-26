@@ -1,6 +1,7 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import { Table } from 'src/domain/table';
+import { UserRole } from 'src/domain/user-role';
 
 @Component({
   selector: 'app-table-form',
@@ -11,6 +12,7 @@ export class TableFormComponent implements OnInit {
 
   @Input() mode: 'create' | 'edit';
   @Input() table: Table;
+  @Input() role: UserRole;
   @Output() tableSubmit: EventEmitter<Table> = new EventEmitter();
 
   constructor() { }
