@@ -14,12 +14,14 @@ export class TableListComponent implements OnInit {
   // @Input() table: Table;
   // @Output() tableSubmit: EventEmitter<Table> = new EventEmitter();
 
+  
   constructor(
     public tableService: TableService
   ) { }
 
   ngOnInit() {
     this.tableService.getTables();
+    
   }
 
   // async submitTable(form: FormGroup) {
