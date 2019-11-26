@@ -19,8 +19,8 @@
                     *ngFor="let element of elementService.getElements"
                     [routerLink]="['/', 'elements', element.id]"
                 >
-                    <td>{{ element.name }}</td>
-                    <td>{{ element.status }}</td>
+                    <td>{{ element.elementName }}</td>
+                    <td>{{ element.elementStatus }}</td>
                 </tr>
             </ng-container>
             <tr

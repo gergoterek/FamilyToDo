@@ -8,6 +8,7 @@ import { HttpClient } from '@angular/common/http';
 export class TableService {
 
   tables: Table[] = [];
+  fTables: Table[] = this.tables;
 
 
   constructor(
@@ -21,6 +22,8 @@ export class TableService {
   async getTables() {
     const tables = await (this.http.get('task')
       .toPromise() as Promise<any[]>);
+      this.fTables = this.tables = tables.map(this.createTableModel);
+      return tables;
   }
 
   async createTable(table: Table): Promise<any> {
@@ -30,4 +33,39 @@ export class TableService {
   async modifyTable(table: Table): Promise<any> {
     await this.http.patch(`task/${table.id}`, table).toPromise();
   }
+
+  private createTableModel(table: any): Table {
+    return {
+      ...table,
+    } as Table;
+  }
+
+  
+/*
+  async getElements() {
+    const elements = await (this.http.get('elements')
+      .toPromise() as Promise<any[]>);
+      this.elements = elements.map(this.createElementModel);
+  }
+
+  async getElement(elementId: number): Promise<Element> {
+    const element = await (this.http.get(`elements/${elementId}`)
+      .toPromise() as Promise<any>);
+    return this.createElementModel(element);
+  }
+
+  async createElement(element: Element): Promise<any> {
+    await this.http.post('elements', element).toPromise();
+  }
+
+  async modifyElement(element: Element): Promise<any> {
+    await this.http.patch(`elements/${element.id}`, element).toPromise();
+  }
+
+  private createElementModel(element: any): Element {
+    return {
+      ...element,
+    } as Element;
+  }
+  */
 }

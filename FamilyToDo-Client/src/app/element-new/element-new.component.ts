@@ -22,8 +22,8 @@ export class ElementNewComponent implements OnInit {
   ngOnInit() {
     this.element = {
       id: null,
-      name: '',
-      status: 'UNDONE' as ElementStatus,
+      elementName: '',
+      elementStatus: 'UNDONE' as ElementStatus,
     };
   }
 

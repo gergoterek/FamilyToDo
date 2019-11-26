@@ -6,18 +6,21 @@
             <tbody>
                 
                 <ng-container
-                    *ngIf="tableService.getTables.length > 0"
+                    *ngIf="tableService.fTables.length > 0"
                 >
                     <tr
-                        *ngFor="let table of tableService.getTables"
-                        [routerLink]="['/', 'tables', table.id]"
+                        *ngFor="let table of tableService.fTables"
+                        [routerLink]="['/', 'tables']"
                     >
-                        <td>{{ table.name }}</td>
-                        <app-element-list></app-element-list>
+                        <td><h3>{{ table.taskName }}</h3></td>
+                        <td *ngFor="let element of table.elements">
+                            <br>
+                                {{element.elementName}}
+                        </td>                        
                     </tr>
                 </ng-container>
                 <tr
-                    *ngIf="tableService.getTables.length === 0"
+                    *ngIf="tableService.fTables.length === 0"
                 >
                     <div style="padding-left: 2em;">
                         <h4>
