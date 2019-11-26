@@ -21,11 +21,11 @@ const routes: Routes = [
     component: TableListComponent
   },
   {
-    path: 'elements/:id',
+    path: 'tables/:id',
     component: ElementDetailComponent
   },
   {
-    path: 'elements/:id/edit',
+    path: 'tables/:id/edit',
     component: ElementEditComponent
   },
   {
