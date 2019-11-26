@@ -10,10 +10,10 @@
         <tbody>
             <ng-container>
                 <tr
-                    *ngFor="let family of familyService.getFamilyMembers"
-                    [routerLink]="['/', 'family', family.id]"
+                    *ngFor="let family of familyService.families"
+                    [routerLink]="['/', 'family']"
                 >
-                    <td>{{ family.name }}</td>
+                    <td>{{ family.username }}</td>
                     <td>{{ family.role }}</td>
                 </tr>
             </ng-container>

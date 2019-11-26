@@ -19,5 +19,12 @@ export class FamilyService {
   async getFamilyMembers() {
     const family = await (this.http.get('user/family')
       .toPromise() as Promise<any[]>);
+    this.families = family.map(this.createFamilyModel);
+  }
+
+  private createFamilyModel(family: any): Family {
+    return {
+      ...family,
+    } as Family;
   }
 }

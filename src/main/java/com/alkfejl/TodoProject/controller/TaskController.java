@@ -43,5 +43,4 @@ public class TaskController {
     public ResponseEntity<Element> addElement(@RequestBody Element element) {                                   //Elem hozzáadása a táblához
         return taskService.addElement(element);
     }
-
 }

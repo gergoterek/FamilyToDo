@@ -23,7 +23,6 @@ export class TableService {
     const tables = await (this.http.get('task')
       .toPromise() as Promise<any[]>);
       this.fTables = this.tables = tables.map(this.createTableModel);
-      return tables;
   }
 
   async createTable(table: Table): Promise<any> {
