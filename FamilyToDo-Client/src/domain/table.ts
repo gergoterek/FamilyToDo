@@ -4,5 +4,4 @@ export interface Table {
     id: number;
     taskName: string;
     elements: Element[];
-
 }

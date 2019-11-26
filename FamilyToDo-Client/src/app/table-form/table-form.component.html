@@ -1,34 +1,24 @@
-<!--<form #form="ngForm" (ngSubmit)="submitTable(form.form)">
-    <div style="padding-left: 3em; padding-top: 2em;">
-        <mat-form-field>
-            <input
-                
-                matInput
-                placeholder="Create new task"
-                [(ngModel)]="table.name"
-                name="name"
-                required
-                #title="ngModel"
-                [disabled]="mode === 'edit'"
-            />
-            <mat-error
-                *ngIf="
-                name.invalid &&
-                    (name.touched || name.dirty) &&
-                    name.errors['required']
-                "
-            >
-                Name is required!
-            </mat-error>
-        </mat-form-field>
+<form #form="ngForm" (ngSubmit)="submitTable(form.form)">
+    <mat-form-field>
+        <input
+            
+            matInput
+            placeholder="Create new task"
+            [(ngModel)]="table.taskName"
+            name="taskName"
+            required
+            #title="ngModel"
+            [disabled]="mode === 'edit'"
+        />
+        
+    </mat-form-field>
 
-        <button 
-            mat-button 
-            color="accent"
-        >
-            Add
-        </button>
-    </div>        
+    <button 
+        mat-button 
+        color="accent"
+    >
+        Add
+    </button>       
     
 </form>
--->
+
