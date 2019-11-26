@@ -1,20 +1,26 @@
 <div>
-    <div>
-        <span>Name:</span>
-        <span>{{ element?.elementName }}</span>
-    </div>
+    <li
+        *ngFor = "let element of tableService.getTable.elements"
+     >
+       
+
     
-    <div>
-        <span>Status:</span>
-        <span>{{ element?.elementStatus }}</span>
-    </div>
-    
-    <div>
-        <button
-            mat-raised-button
-            color="accent"
-            (click)="editElement()"
-        >Edit</button>
-    </div>
-    <div>
+            <div>
+                <span>Name:</span>
+                <span>{{ element?.elementName }}</span>
+            </div>
+            
+            <div>
+                <span>Status:</span>
+                <span>{{ element?.elementStatus }}</span>
+            </div>
+            
+            <div>
+                <button
+                    mat-raised-button
+                    color="accent"
+                    (click)="editTable()"
+                >Edit</button>
+            </div>
+        </li>
 </div>

@@ -1,7 +1,7 @@
 import { Component, OnInit } from "@angular/core";
-import { Element } from "src/domain/element";
+import { Table } from "src/domain/table";
 import { ActivatedRoute, Router } from "@angular/router";
-import { ElementService } from "../../service/element.service";
+import { TableService } from "../../service/table.service";
 
 @Component({
   selector: "app-element-detail",
@@ -9,21 +9,21 @@ import { ElementService } from "../../service/element.service";
   styleUrls: ["./element-detail.component.css"]
 })
 export class ElementDetailComponent implements OnInit {
-  element: Element;
+  table: Table;
 
   constructor(
     private route: ActivatedRoute,
-    private elementService: ElementService,
+    public tableService: TableService,
     private router: Router
   ) {}
 
   async ngOnInit() {
-    const elementId = parseInt(this.route.snapshot.params.id);
-    this.element = await this.elementService.getElement(elementId);
+    const tableId = parseInt(this.route.snapshot.params.id);
+    this.table = await this.tableService.getTable(tableId);
   }
 
-  editElement() {
+  editTable() {
     this.router.navigate([
-      "elements", this.element.id, "edit"]);
+      "tables", this.table.id, "edit"]);
   }
 }

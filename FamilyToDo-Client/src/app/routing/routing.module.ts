@@ -7,7 +7,6 @@ import { LoginComponent } from '../login/login.component';
 import { LandingComponent } from '../landing/landing.component';
 import { ElementEditComponent } from '../element-edit/element-edit.component';
 import { ElementDetailComponent } from '../element-detail/element-detail.component';
-import { ElementListComponent } from '../element-list/element-list.component';
 
 
 const routes: Routes = [

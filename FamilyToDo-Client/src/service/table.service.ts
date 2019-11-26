@@ -38,7 +38,6 @@ export class TableService {
       ...table,
     } as Table;
   }
-
   
 /*
   async getElements() {

@@ -27,7 +27,9 @@
                                     *ngIf="table.elements.length > 0"
                                 >
                                 <br>
-                                    <tr *ngFor="let element of table.elements">
+                                    <tr *ngFor="let element of table.elements"
+                                        [routerLink]="['/', 'tables', table.id]"
+                                    >
                                             <td>  {{element.elementName}}</td>
                                             <td>  {{element.elementStatus}}</td>
                                     </tr> 
