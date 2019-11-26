@@ -3,8 +3,7 @@
         <div>
         </div>
         <table>
-            <tbody>
-                
+            <tbody>                
                 <ng-container
                     *ngIf="tableService.fTables.length > 0"
                 >
@@ -12,11 +11,29 @@
                         *ngFor="let table of tableService.fTables"
                         [routerLink]="['/', 'tables']"
                     >
-                        <td><h3>{{ table.taskName }}</h3></td>
-                        <td *ngFor="let element of table.elements">
-                            <br>
-                                {{element.elementName}}
-                        </td>                        
+                    
+                        <h3>{{ table.taskName }}</h3>
+                        <table>
+                            <tbody>
+                                <ng-container
+                                    *ngIf="table.elements.length > 0"
+                                >
+                                <div style="padding-left: 1em;">
+                                    <tr *ngFor="let element of table.elements">
+                                            {{element.elementName}}
+                                    </tr> 
+                                </div>
+                                    <tr
+                                        *ngIf="tableService.fTables.length === 0"
+                                    >
+                                    <div style="padding-left: 1em;">
+                                        <h4>
+                                            You have no elements in the task!
+                                        </h4>
+                                    </div>
+                                </ng-container>   
+                            </tbody>
+                        </table>                    
                     </tr>
                 </ng-container>
                 <tr
