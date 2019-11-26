@@ -1,4 +1,4 @@
-<div style="padding-left: 3em;">
+<!-- <div style="padding-left: 3em;">
         <h1>My Tasks</h1>
         <div>
         </div>
@@ -63,5 +63,22 @@
         
             </tbody>
         </table>
-    </div>
+</div> -->
+
+
+<ng-container *ngFor = "let table of tableService.fTables">
+<h2>{{table.taskName}}</h2>
+<table mat-table class="mat-elevation-z8">
+    <tr>
+      <th mat-header-cell> Name </th>
+      <th mat-header-cell> Status </th>
+    </tr>
+    <tr *ngFor="let element of table.elements">
+      <td mat-cell > {{element.elementName}} </td>
+      <td mat-cell > {{element.elementStatus}} </td>
+    </tr>
+
+  </table>
+</ng-container> 
+  
     

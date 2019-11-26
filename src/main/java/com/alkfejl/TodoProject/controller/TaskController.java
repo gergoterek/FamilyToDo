@@ -34,6 +34,19 @@ public class TaskController {
         return myFamily.getTasks();
     }
 
+    @GetMapping("/{id}")
+    public ResponseEntity<Task> getTask(@PathVariable Integer id){
+        User actUser = userService.getActUser();
+        Family myFamily = familyService.getMyFamily(actUser);
+        List<Task> taskList = myFamily.getTasks();
+        for(Task task : taskList) {
+            if (task.getId() == id) {
+                return ResponseEntity.ok(task);
+            }
+        }
+        return ResponseEntity.ok().build();
+    }
+
     @PostMapping("/add")
     public ResponseEntity<Task> addTask(@RequestBody Task task) {                                               //Feladattábla hozzáadása
         return taskService.addTask(task);
