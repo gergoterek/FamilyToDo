@@ -17,7 +17,7 @@ export class FamilyService {
   ) { }
 
   async getFamilyMembers() {
-    const family = await (this.http.get('family')
+    const family = await (this.http.get('user/family')
       .toPromise() as Promise<any[]>);
   }
 }

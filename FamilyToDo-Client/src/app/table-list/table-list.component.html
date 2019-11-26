@@ -1,7 +1,5 @@
-
-
 <div style="padding-left: 3em;">
-        <h2>My tasks</h2>
+        <h1>My Tasks</h1>
         <div>
         </div>
         <table>
@@ -15,18 +13,22 @@
                         [routerLink]="['/', 'tables', table.id]"
                     >
                         <td>{{ table.name }}</td>
+                        <app-element-list></app-element-list>
                     </tr>
                 </ng-container>
                 <tr
                     *ngIf="tableService.getTables.length === 0"
                 >
-                    <td
-                        colspan="3"
-                    >No table:( Create one!</td>
+                    <div style="padding-left: 2em;">
+                        <h4>
+                            You have no tables:( Create one!
+                        </h4>
+                    </div>
                 </tr>
-        <div>
-            <app-table-form></app-table-form>
-        </div>
+                <div>
+                    <app-table-form></app-table-form>
+                </div>
+        
             </tbody>
         </table>
     </div>

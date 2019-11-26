@@ -21,10 +21,6 @@ const routes: Routes = [
     component: TableListComponent
   },
   {
-    path: 'elements',
-    component: ElementListComponent
-  },
-  {
     path: 'elements/:id',
     component: ElementDetailComponent
   },

@@ -20,7 +20,7 @@ public class UserController {
     @Autowired
     private FamilyService familyService;
 
-    @GetMapping("family")
+    @GetMapping("/family")
     public List<User> getMyFamilyMembers(){                                                             //Összes családtag megadása
         User actUser = userService.getActUser();
         Family myFamily = familyService.getMyFamily(actUser);
