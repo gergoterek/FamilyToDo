@@ -35,10 +35,10 @@ public class TaskService {
 
         taskRepository.save(task);
 
-        for(int i=0;i<task.getElements().size();i++){
-            task.getElements().get(i).setTask(task);
-        }
-        elementRepository.saveAll(task.getElements());
+        //for(int i=0;i<task.getElements().size();i++){
+        //    task.getElements().get(i).setTask(task);
+        //}
+        //elementRepository.saveAll(task.getElements());
         return ResponseEntity.ok(task);
     }
 

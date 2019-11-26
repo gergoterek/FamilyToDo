@@ -15,6 +15,10 @@ export class AuthService {
   get token() {
     return btoa(`${this.user.username}:${this.user.password}`);
   }
+
+  get userRole(){
+    return this.user.role;
+  }
   private user: User;
 
   constructor(
