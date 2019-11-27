@@ -32,7 +32,10 @@ export class TableNewComponent implements OnInit {
 
   async submitTable(table: Table) {
     await this.tableService.createTable(table);
+    this.router.navigateByUrl('/RefreshComponent', { skipLocationChange: true }).then(() => {
     this.router.navigate(['/', 'tables']);
+    //this.router.navigate(['TableListComponent']);
+}); 
   }
 
 

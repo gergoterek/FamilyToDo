@@ -20,8 +20,7 @@ export class TableListComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.tableService.getTables();
-    
+    this.tableService.getTables();    
   }
 
   async submitTable(form: FormGroup) {
