@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Table } from 'src/domain/table';
+import { User } from 'src/domain/user';
 import { TableService } from '../../service/table.service';
 import { FamilyService } from 'src/service/family.service';
 @Component({

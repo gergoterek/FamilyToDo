@@ -1,18 +1,16 @@
 <div>
     <li
-        *ngFor = "let element of tableService.getTable.elements"
+        *ngFor = "let element of table.elements"
      >
-       
-
     
             <div>
                 <span>Name:</span>
-                <span>{{ element?.elementName }}</span>
+                <span>{{ element?.name }}</span>
             </div>
             
             <div>
                 <span>Status:</span>
-                <span>{{ element?.elementStatus }}</span>
+                <span>{{ element?.status }}</span>
             </div>
             
             <div>

@@ -1,22 +1,24 @@
-<div>
-    <h2>Family members</h2>
-    <table>
-        <thead>
-            <tr>
-                <th>Name</th>
-                <th>Role</th>
-            </tr>
-        </thead>
-        <tbody>
-            <ng-container>
-                <tr
-                    *ngFor="let family of familyService.families"
-                    [routerLink]="['/', 'family']"
-                >
-                    <td>{{ family.username }}</td>
-                    <td>{{ family.role }}</td>
-                </tr>
-            </ng-container>
-        </tbody>
-    </table>
+<div style="padding-left: 3em; padding-top: 2em;">
+<table mat-table class="mat-elevation-z8">
+    <tr>
+      <th mat-header-cell> Name </th>
+      <th mat-header-cell> Role </th>
+    </tr>
+    <ng-container *ngFor = "let family of familyService.families">
+        <tr >
+        <td mat-cell > {{family.username}} </td>
+        <td mat-cell *ngIf="family.role==='ROLE_ADMIN'">
+             ADMIN 
+        </td>
+        <td mat-cell *ngIf="family.role==='ROLE_USER'">
+             USER 
+        </td>
+        </tr>
+    </ng-container> 
+
+  </table>
+  </div>
+  <div style="padding-left: 3em; padding-top: 4em;">
+    <li>USER: Can modify tasks and elements, but cannot modify family roles.</li>
+    <li>ADMIN: Can modify tasks, elements and family roles. Can create invitational code.</li>
 </div>

@@ -16,7 +16,6 @@ import {MatSelectModule} from '@angular/material/select';
 
 import { RoutingModule } from './routing/routing.module';
 import {MatButtonToggleModule} from '@angular/material/button-toggle';
-import { ElementListComponent } from './element-list/element-list.component';
 import { LoginComponent } from './login/login.component';
 import { LandingComponent } from './landing/landing.component';
 
@@ -35,7 +34,6 @@ import { TableNewComponent } from './table-new/table-new.component';
     AppComponent,
     TableListComponent,
     FamilyListComponent,
-    ElementListComponent,
     LoginComponent,
     LandingComponent,
     LoginComponent,

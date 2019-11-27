@@ -12,9 +12,10 @@ export class LoginComponent implements OnInit {
 
   user: User = {
     name: null,
+    username: '',
     password: '',
     role: null,
-    username: '',
+    
   };
 
   constructor(

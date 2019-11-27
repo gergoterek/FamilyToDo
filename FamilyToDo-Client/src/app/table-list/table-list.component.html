@@ -65,20 +65,32 @@
         </table>
 </div> -->
 
+<div 
+    *ngIf="tableService.allTables.length > 0"
+>
+    <ng-container 
+        *ngFor = "let table of tableService.allTables"
+    >
+        <h2>{{table.taskName}}</h2>
+        <div *ngIf="table.elements.length > 0">
+            <table mat-table class="mat-elevation-z8">
+                <tr>
+                    <th mat-header-cell> Name </th>
+                    <th mat-header-cell> Status </th>
+                </tr>
+                <tr *ngFor="let element of table.elements">
+                <td mat-cell > {{element.elementName}} </td>
+                <td mat-cell > {{element.elementStatus}} </td>
+                </tr>
 
-<ng-container *ngFor = "let table of tableService.fTables">
-<h2>{{table.taskName}}</h2>
-<table mat-table class="mat-elevation-z8">
-    <tr>
-      <th mat-header-cell> Name </th>
-      <th mat-header-cell> Status </th>
-    </tr>
-    <tr *ngFor="let element of table.elements">
-      <td mat-cell > {{element.elementName}} </td>
-      <td mat-cell > {{element.elementStatus}} </td>
-    </tr>
-
-  </table>
-</ng-container> 
+            </table>
+        </div>
+        <div *ngIf="table.elements.length === 0">
+            <h4>
+                You have no element in the task!
+            </h4>
+        </div>
+    </ng-container> 
+</div>
   
     

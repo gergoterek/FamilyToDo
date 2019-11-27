@@ -8,7 +8,7 @@ import { HttpClient } from '@angular/common/http';
 export class TableService {
 
   tables: Table[] = [];
-  fTables: Table[] = this.tables;
+  allTables: Table[] = this.tables;
 
 
   constructor(
@@ -22,7 +22,7 @@ export class TableService {
   async getTables() {
     const tables = await (this.http.get('task')
       .toPromise() as Promise<any[]>);
-      this.fTables = this.tables = tables.map(this.createTableModel);
+      this.allTables = this.tables = tables.map(this.createTableModel);
   }
 
   async createTable(table: Table): Promise<any> {
