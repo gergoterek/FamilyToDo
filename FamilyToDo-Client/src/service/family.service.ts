@@ -10,18 +10,17 @@ import { User } from 'src/domain/user';
 
 export class FamilyService {
 
-  families: Family[] = [];
-  users: User[]= [];
-
+  // family: Family[] = [];
+  // myFamily: Family[] = this.family;
 
   constructor(
     private http: HttpClient
   ) { }
 
-  async getFamilyMembers() {
+  async getFamily() : Promise<Family>{
     const family = await (this.http.get('user/family')
-      .toPromise() as Promise<any[]>);
-    this.families = family.map(this.createFamilyModel);
+      .toPromise() as Promise<any>);
+      return this.createFamilyModel(family);
   }
   // async getFamilyUsers() {
   //   const family = await (this.http.get('user/family')
@@ -41,3 +40,6 @@ export class FamilyService {
     } as User[];
   }
 }
+
+
+  

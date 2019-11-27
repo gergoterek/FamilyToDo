@@ -1,5 +1,6 @@
 package com.alkfejl.TodoProject.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -17,11 +18,15 @@ public class User {
     private Integer id;
 
     @Column(nullable = false)
+    private String nickname;
+
+    @Column(nullable = false)
     private String username;
 
     @Column(nullable = false)
     private String password;
 
+    @JsonIgnore
     @ManyToOne
     private Family family;
 

@@ -11,7 +11,7 @@ import { AuthService } from '../../service/auth.service';
 export class LoginComponent implements OnInit {
 
   user: User = {
-    name: null,
+    nickname: null,
     username: '',
     password: '',
     role: null,

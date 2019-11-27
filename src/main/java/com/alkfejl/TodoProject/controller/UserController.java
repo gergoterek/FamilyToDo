@@ -20,24 +20,20 @@ public class UserController {
     @Autowired
     private FamilyService familyService;
 
-
+/*
     @GetMapping("/family")
     public List<User> getMyFamilyMembers(){                                                             //Összes családtag megadása
         User actUser = userService.getActUser();
         Family myFamily = familyService.getMyFamily(actUser);
         return myFamily.getUsers();
     }
-
-
-/*
+*/
     @GetMapping("/family")
-    public Family getMyFamilyMembers(){                                                             //Összes családtag megadása
+    public Family getMyFamily(){                                                             //Összes családtag megadása
         User actUser = userService.getActUser();
         return familyService.getMyFamily(actUser);
     }
-    */
-
-
+    
     @PostMapping("/registration")
     public ResponseEntity<User> register(@RequestBody User user) {                                      //Regisztráció
         return userService.register(user);

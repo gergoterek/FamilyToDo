@@ -17,6 +17,6 @@ public class HomeController {
 
     @GetMapping("")
     public String currentUserName() {
-        return "Welcome "+userService.getActUser().getUsername();
+        return userService.getActUser().getUsername();
     }
 }

@@ -21,7 +21,7 @@ public class Family {
     @Column(nullable = false)
     private String name;
 
-    @JsonIgnore
+
     @OneToMany(mappedBy = "family")
     private List<User> users;
 

@@ -4,7 +4,7 @@ import { Table } from './table';
 export interface Family {
     id: number;
     name: String,
-    User: User[];
+    users: User[];
     Table: Table[];
     
 }

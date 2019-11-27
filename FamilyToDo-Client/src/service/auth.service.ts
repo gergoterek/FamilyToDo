@@ -31,14 +31,14 @@ export class AuthService {
   async login(username: string, password: string) {
     const oldUser = this.user;
     this.user = {
-      name: null,
+      nickname: null,
       role: null,
       username: username,
       password: password,
     };
     try {
       const user = await (this.http.get('user/login').toPromise() as Promise<User>);
-      this.user.name = user.name;
+      this.user.nickname = user.nickname;
       this.user.role = user.role;
       this.router.navigate(['/']);
     } catch (e) {
@@ -48,7 +48,7 @@ export class AuthService {
 
   logout() {
     this.user = {
-      name: 'Guest',
+      nickname: 'Guest',
       username: null,
       password: null,
       role: UserRole.Guest,

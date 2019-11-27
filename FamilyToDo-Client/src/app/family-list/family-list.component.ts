@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Table } from 'src/domain/table';
-import { User } from 'src/domain/user';
+import { Family } from 'src/domain/family';
 import { TableService } from '../../service/table.service';
 import { FamilyService } from 'src/service/family.service';
 @Component({
@@ -10,13 +10,17 @@ import { FamilyService } from 'src/service/family.service';
 })
 export class FamilyListComponent implements OnInit {
 
+family: Family;
+
+
   constructor(
-    public familyService: FamilyService
+    private familyService: FamilyService
   ) { }
 
-  ngOnInit() {
-    this.familyService.getFamilyMembers();
+  async ngOnInit() {
+    this.family = await this.familyService.getFamily();
   }
 
 
 }
+
