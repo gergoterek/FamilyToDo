@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { TableService } from '../../service/table.service';
+import { ElementService } from '../../service/element.service';
 import { Router } from '@angular/router';
 import { ElementStatus } from 'src/domain/element-status';
 import { Element } from 'src/domain/element';
@@ -17,6 +18,7 @@ export class ElementNewComponent implements OnInit {
 
   constructor(
     private tableService: TableService,
+    private elementService: ElementService,
     private router: Router,
     private auth : AuthService
   ) { }
@@ -32,7 +34,7 @@ export class ElementNewComponent implements OnInit {
   }
 
   async submitElement(element: Element) {
-    await this.tableService.createElement(element);
+    await this.elementService.createElement(element);
     this.router.navigateByUrl('/RefreshComponent', { skipLocationChange: true }).then(() => {
     this.router.navigate(['/', 'tables']);}); 
   }

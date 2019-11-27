@@ -10,6 +10,8 @@ import { AuthService } from '../../service/auth.service';
 })
 export class LoginComponent implements OnInit {
 
+  hidePassword = true;
+  
   user: User = {
     nickname: null,
     username: '',

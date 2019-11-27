@@ -42,8 +42,8 @@ public class TaskService {
         return ResponseEntity.ok(task);
     }
 
-    public ResponseEntity<Element> addElement(Element element) {                           //Elem hozzáadása a feladattáblához
+    /*public ResponseEntity<Element> addElement(Element element) {                           //Elem hozzáadása a feladattáblához
         //TODO: Nem írja bele az adatbázisba a hozzá tartozó TASK_ID-t!
         return ResponseEntity.ok(elementRepository.save(element));
-    }
+    }*/
 }

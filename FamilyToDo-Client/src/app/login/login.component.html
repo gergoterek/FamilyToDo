@@ -19,11 +19,12 @@
       matInput
       placeholder="Password"
       required
-      type="text"
+      [type]="hidePassword ? 'password' : 'text'"
       [(ngModel)]="user.password"
       name="password"
       #password="ngModel"
     />
+    <mat-icon matSuffix (click)="hidePassword = !hidePassword">{{hidePassword ? 'visibility_off' : 'visibility'}}</mat-icon>
     <mat-error *ngIf="password.invalid">Password is required</mat-error>
   </mat-form-field>
 </div>
@@ -38,3 +39,4 @@
     </button>
   </div>
 </form>
+
