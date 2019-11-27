@@ -28,6 +28,9 @@ export class TableService {
   async createTable(table: Table): Promise<any> {
     await this.http.post('task/add', table).toPromise();
   }
+  async createElement(element: Element): Promise<any> {
+    await this.http.post('addelement', element).toPromise();
+  }
 
   async modifyTable(table: Table): Promise<any> {
     await this.http.patch(`task/${table.id}`, table).toPromise();

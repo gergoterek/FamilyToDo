@@ -33,7 +33,7 @@ public class UserController {
         User actUser = userService.getActUser();
         return familyService.getMyFamily(actUser);
     }
-    
+
     @PostMapping("/registration")
     public ResponseEntity<User> register(@RequestBody User user) {                                      //Regisztráció
         return userService.register(user);

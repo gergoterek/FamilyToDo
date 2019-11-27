@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { ElementService } from '../../service/element.service';
+import { TableService } from '../../service/table.service';
 import { Router } from '@angular/router';
 import { ElementStatus } from 'src/domain/element-status';
 import { Element } from 'src/domain/element';
+import { AuthService } from 'src/service/auth.service';
+import { UserRole } from 'src/domain/user-role';
 @Component({
   selector: 'app-element-new',
   templateUrl: './element-new.component.html',
@@ -11,12 +13,12 @@ import { Element } from 'src/domain/element';
 export class ElementNewComponent implements OnInit {
 
   element: Element;
+  userRole: UserRole;
 
   constructor(
-    private elementService: ElementService,
-    private router: Router
-
-
+    private tableService: TableService,
+    private router: Router,
+    private auth : AuthService
   ) { }
 
   ngOnInit() {
@@ -25,10 +27,13 @@ export class ElementNewComponent implements OnInit {
       elementName: '',
       elementStatus: 'UNDONE' as ElementStatus,
     };
+
+    this.userRole = this.auth.userRole;
   }
 
   async submitElement(element: Element) {
-    await this.elementService.createElement(element);
-    this.router.navigate(['/', 'elements']);
+    await this.tableService.createElement(element);
+    this.router.navigateByUrl('/RefreshComponent', { skipLocationChange: true }).then(() => {
+    this.router.navigate(['/', 'tables']);}); 
   }
 }
