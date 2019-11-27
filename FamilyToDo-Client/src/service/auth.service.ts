@@ -40,7 +40,7 @@ export class AuthService {
       const user = await (this.http.get('user/login').toPromise() as Promise<User>);
       this.user.nickname = user.nickname;
       this.user.role = user.role;
-      this.router.navigate(['/']);
+      this.router.navigate(['/tables']);
     } catch (e) {
       this.user = oldUser;
     }

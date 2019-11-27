@@ -1,18 +1,18 @@
 <div style="padding-left: 3em; padding-top: 2em;">
 
-<h4>{{family.name}} family members:</h4>
+<h4>{{family?.name}} family members:</h4>
 <table mat-table class="mat-elevation-z8">
     <tr>
       <th mat-header-cell> Name </th>
       <th mat-header-cell> Role </th>
     </tr>
-    <ng-container *ngFor = "let user of family.users">
+    <ng-container *ngFor = "let user of family?.users">
         <tr >
-        <td mat-cell > {{user.nickname}} </td>
-        <td mat-cell *ngIf="user.role==='ROLE_ADMIN'">
+        <td mat-cell > {{user?.nickname}} </td>
+        <td mat-cell *ngIf="user?.role==='ROLE_ADMIN'">
              ADMIN 
         </td>
-        <td mat-cell *ngIf="user.role==='ROLE_USER'">
+        <td mat-cell *ngIf="user?.role==='ROLE_USER'">
              USER 
         </td>
         </tr>
