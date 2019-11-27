@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { User } from 'src/domain/user';
 import { FormGroup } from '@angular/forms';
 import { AuthService } from '../../service/auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -11,7 +12,7 @@ import { AuthService } from '../../service/auth.service';
 export class LoginComponent implements OnInit {
 
   hidePassword = true;
-  
+
   user: User = {
     nickname: null,
     username: '',
@@ -21,7 +22,8 @@ export class LoginComponent implements OnInit {
   };
 
   constructor(
-    private authService: AuthService
+    private authService: AuthService,
+    private router: Router,
   ) { }
 
   ngOnInit() {
@@ -31,5 +33,15 @@ export class LoginComponent implements OnInit {
     const user = form.value as User;
     this.authService.login(user.username, user.password);
   }
+  registration(){
+    this.router.navigate(['/', 'registration']);
+  }
+
+  
+
+
+
 
 }
+
+

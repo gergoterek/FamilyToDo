@@ -3,7 +3,6 @@ import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { AppRoutingModule } from './app-routing.module';
 
 import { TableListComponent } from './table-list/table-list.component';
 import { FamilyListComponent } from './family-list/family-list.component';
@@ -28,6 +27,7 @@ import { ElementNewComponent } from './element-new/element-new.component';
 import { ElementFormComponent } from './element-form/element-form.component';
 import { TableFormComponent } from './table-form/table-form.component';
 import { TableNewComponent } from './table-new/table-new.component';
+import { RegistrationComponent } from './registration/registration.component';
 
 @NgModule({
   declarations: [
@@ -43,6 +43,7 @@ import { TableNewComponent } from './table-new/table-new.component';
     ElementFormComponent,
     TableFormComponent,
     TableNewComponent,
+    RegistrationComponent,
   ],
   imports: [
     BrowserModule,

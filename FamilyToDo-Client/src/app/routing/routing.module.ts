@@ -7,6 +7,7 @@ import { LoginComponent } from '../login/login.component';
 import { LandingComponent } from '../landing/landing.component';
 import { ElementEditComponent } from '../element-edit/element-edit.component';
 import { ElementDetailComponent } from '../element-detail/element-detail.component';
+import { RegistrationComponent } from '../registration/registration.component';
 
 
 const routes: Routes = [
@@ -30,6 +31,10 @@ const routes: Routes = [
   {
     path: 'login',
     component: LoginComponent
+  },
+  {
+    path: 'registration',
+    component: RegistrationComponent
   },
   {
     path: 'family',
