@@ -52,8 +52,8 @@ public class TaskController {
         return taskService.addTask(task);
     }
 
-    /*@PostMapping("/addelement")
-    public ResponseEntity<Element> addElement(@RequestBody Element element) {                                   //Elem hozzáadása a táblához
-        return taskService.addElement(element);
-    }*/
+    @PostMapping("/{id}/elements")
+    public ResponseEntity<Element> addElement(@RequestBody Element element, @PathVariable Integer id) {                                   //Elem hozzáadása a táblához
+        return taskService.addElement(element,id);
+    }
 }

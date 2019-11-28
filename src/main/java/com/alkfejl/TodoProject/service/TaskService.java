@@ -8,6 +8,8 @@ import com.alkfejl.TodoProject.repository.TaskRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
 
 import java.util.Optional;
 
@@ -35,15 +37,19 @@ public class TaskService {
 
         taskRepository.save(task);
 
-        //for(int i=0;i<task.getElements().size();i++){
-        //    task.getElements().get(i).setTask(task);
-        //}
-        //elementRepository.saveAll(task.getElements());
         return ResponseEntity.ok(task);
     }
 
-    /*public ResponseEntity<Element> addElement(Element element) {                           //Elem hozzáadása a feladattáblához
-        //TODO: Nem írja bele az adatbázisba a hozzá tartozó TASK_ID-t!
-        return ResponseEntity.ok(elementRepository.save(element));
-    }*/
+    public ResponseEntity<Element> addElement( Element element, Integer id) {
+        Optional<Task> oTask = taskRepository.findById(id);
+        if (oTask.isPresent()) {
+            Task task = oTask.get();
+            task.getElements().add(element);
+            element.setTask(task);
+            Element createdElelement = elementRepository.save(element);
+            return ResponseEntity.ok(createdElelement);
+        } else {
+            return ResponseEntity.notFound().build();
+        }
+    }
 }
