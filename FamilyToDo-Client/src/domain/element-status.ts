@@ -1,4 +1,4 @@
 export enum ElementStatus {
-    Done = 'DONE',
-    Undone = 'UNDONE',
+    DONE = 'DONE',
+    UNDONE = 'UNDONE',
 }

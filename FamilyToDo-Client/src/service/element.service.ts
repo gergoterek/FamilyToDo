@@ -28,8 +28,9 @@ export class ElementService {
     return this.createElementModel(element);
   }
 
-  async createElement(element: Element): Promise<any> {
-    await this.http.post('elements', element).toPromise();
+  async createElement(element: Element, taskId:number): Promise<any> {
+    console.log('#####################################ezt fogom elküldeni: '+element.elementStatus);
+    await this.http.post(`task/${taskId}/elements`, element).toPromise();
   }
 
   async modifyElement(element: Element): Promise<any> {

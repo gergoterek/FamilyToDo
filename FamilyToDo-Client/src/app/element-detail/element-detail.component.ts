@@ -18,8 +18,8 @@ export class ElementDetailComponent implements OnInit {
   ) {}
 
   async ngOnInit() {
-    const tableId = parseInt(this.route.snapshot.params.id);
-    this.table = await this.tableService.getTable(tableId);
+    const param = parseInt(this.route.snapshot.params.id);
+    this.table = await this.tableService.getTable(param);
   }
 
   editTable() {

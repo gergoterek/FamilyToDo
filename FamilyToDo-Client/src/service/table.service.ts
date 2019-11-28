@@ -15,9 +15,10 @@ export class TableService {
     private http: HttpClient
   ) { }
 
-  async getTable(tableId: number): Promise<any> {
+  async getTable(tableId: number): Promise<Table> {
     const table = await (this.http.get(`task/${tableId}`)
       .toPromise() as Promise<any>);
+    return this.createTableModel(table);
   }
   async getTables() {
     const tables = await (this.http.get('task')
