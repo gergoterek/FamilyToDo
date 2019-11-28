@@ -1,5 +1,6 @@
 package com.alkfejl.TodoProject.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -20,9 +21,11 @@ public class Invitation {
     @Column(nullable = false)
     private Integer invitationCode;
 
+    @JsonIgnore
     @ManyToOne
     private Family family;
 
+    @JsonIgnore
     @Column(nullable = false)
     private LocalDateTime expire_date;
 }

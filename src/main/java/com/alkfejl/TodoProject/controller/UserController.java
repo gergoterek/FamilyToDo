@@ -22,20 +22,20 @@ public class UserController {
 
 /*
     @GetMapping("/family")
-    public List<User> getMyFamilyMembers(){                                                             //Összes családtag megadása
+    public List<User> getMyFamilyMembers(){
         User actUser = userService.getActUser();
         Family myFamily = familyService.getMyFamily(actUser);
         return myFamily.getUsers();
     }
 */
     @GetMapping("/family")
-    public Family getMyFamily(){                                                             //Összes családtag megadása
+    public Family getMyFamily(){
         User actUser = userService.getActUser();
         return familyService.getMyFamily(actUser);
     }
 
     @PostMapping("/registration")
-    public ResponseEntity<User> register(@RequestBody User user) {                                      //Regisztráció
+    public ResponseEntity<User> register(@RequestBody User user) {
         return userService.register(user);
     }
 

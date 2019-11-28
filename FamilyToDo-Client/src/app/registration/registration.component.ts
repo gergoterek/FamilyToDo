@@ -1,4 +1,10 @@
 import { Component, OnInit } from '@angular/core';
+import { FormGroup } from '@angular/forms';
+import { User } from 'src/domain/user';
+import { Invitation } from 'src/domain/invitation';
+import { Router } from '@angular/router';
+import { AuthService } from 'src/service/auth.service';
+import { UserRole } from 'src/domain/user-role';
 
 @Component({
   selector: 'app-registration',
@@ -7,9 +13,31 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RegistrationComponent implements OnInit {
 
-  constructor() { }
+  invitation: Invitation = {
+    id: null,
+    invitationCode: null,
+  }
+
+hidePassword = true;
+
+  user: User = {
+    nickname: null,
+    username: '',
+    password: '',
+    role: UserRole.Guest,    
+  };
+
+  constructor(
+    private authService: AuthService,
+    private router: Router,
+  ) { }
 
   ngOnInit() {
   }
 
+  onSubmit(form: FormGroup) {
+    const user = form.value as User;
+    this.authService.registration(user.nickname, user.username, user.password);
+  }
+  
 }

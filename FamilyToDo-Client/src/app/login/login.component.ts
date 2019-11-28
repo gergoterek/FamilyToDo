@@ -17,8 +17,7 @@ export class LoginComponent implements OnInit {
     nickname: null,
     username: '',
     password: '',
-    role: null,
-    
+    role: null,    
   };
 
   constructor(

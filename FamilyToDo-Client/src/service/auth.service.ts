@@ -56,4 +56,40 @@ export class AuthService {
     // this.router.navigate(['/']);
   }
 
+  async registration(nickname: string, username: string, password: string) {
+    const oldUser = this.user;
+    this.user = {
+      nickname: null,
+      role: UserRole.Admin,
+      username: username,
+      password: password,
+    };
+    try {
+      const user = await (this.http.post('/registration', this.user).toPromise() as Promise<User>);
+      this.user.nickname = user.nickname;
+      this.user.role = user.role;
+      this.router.navigate(['/user/login']);
+    } catch (e) {
+      this.user = oldUser;
+    }
+  }
+
+  async invitationalRegistration(nickname: string, username: string, password: string, invitationCode: number) {
+    const oldUser = this.user;
+    this.user = {
+      nickname: null,
+      role: UserRole.User,
+      username: username,
+      password: password,
+    };
+    try {
+      const user = await (this.http.post('/registration', this.user).toPromise() as Promise<User>);
+      this.user.nickname = user.nickname;
+      this.user.role = user.role;
+      this.router.navigate(['/user/login']);
+    } catch (e) {
+      this.user = oldUser;
+    }
+  }
+
 }
