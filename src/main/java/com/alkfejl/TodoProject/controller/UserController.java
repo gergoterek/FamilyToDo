@@ -1,6 +1,7 @@
 package com.alkfejl.TodoProject.controller;
 
 import com.alkfejl.TodoProject.model.Family;
+import com.alkfejl.TodoProject.model.Invitation;
 import com.alkfejl.TodoProject.model.User;
 import com.alkfejl.TodoProject.service.FamilyService;
 import com.alkfejl.TodoProject.service.UserService;
@@ -35,7 +36,7 @@ public class UserController {
     }
 
     @PostMapping("/registration")
-    public ResponseEntity<User> register(@RequestBody User user) {
+    public ResponseEntity<User> register(@RequestBody User user, Invitation inv) {
         return userService.register(user);
     }
 

@@ -3,6 +3,7 @@ import { User } from 'src/domain/user';
 import { FormGroup } from '@angular/forms';
 import { AuthService } from '../../service/auth.service';
 import { Router } from '@angular/router';
+import { UserRole } from 'src/domain/user-role';
 
 @Component({
   selector: 'app-login',
@@ -17,7 +18,7 @@ export class LoginComponent implements OnInit {
     nickname: null,
     username: '',
     password: '',
-    role: null,    
+    role: UserRole.Guest,    
   };
 
   constructor(
@@ -34,6 +35,7 @@ export class LoginComponent implements OnInit {
   }
   registration(){
     this.router.navigate(['/', 'registration']);
+
   }
 
   

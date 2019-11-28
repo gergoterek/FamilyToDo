@@ -13,12 +13,12 @@ import { UserRole } from 'src/domain/user-role';
 })
 export class RegistrationComponent implements OnInit {
 
+  hidePassword = true;
+
   invitation: Invitation = {
     id: null,
     invitationCode: null,
   }
-
-hidePassword = true;
 
   user: User = {
     nickname: null,
@@ -26,6 +26,7 @@ hidePassword = true;
     password: '',
     role: UserRole.Guest,    
   };
+  
 
   constructor(
     private authService: AuthService,
@@ -37,7 +38,7 @@ hidePassword = true;
 
   onSubmit(form: FormGroup) {
     const user = form.value as User;
-    this.authService.registration(user.nickname, user.username, user.password);
+    this.authService.registration(user.nickname, user.username, user.password, this.invitation.invitationCode);
   }
   
 }

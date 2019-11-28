@@ -3,6 +3,7 @@ import { User } from 'src/domain/user';
 import { UserRole } from 'src/domain/user-role';
 import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
+import { Invitation } from 'src/domain/invitation';
 
 @Injectable({
   providedIn: 'root'
@@ -20,6 +21,7 @@ export class AuthService {
     return this.user.role;
   }
   private user: User;
+  private invitation: Invitation;
 
   constructor(
     private router: Router,
@@ -53,37 +55,23 @@ export class AuthService {
       password: null,
       role: UserRole.Guest,
     };
-    // this.router.navigate(['/']);
+     this.router.navigate(['/login']);
   }
 
-  async registration(nickname: string, username: string, password: string) {
+  async registration(nickname: string, username: string, password: string, invitationCode: number) {
     const oldUser = this.user;
     this.user = {
-      nickname: null,
+      nickname: nickname,
       role: UserRole.Admin,
       username: username,
       password: password,
     };
-    try {
-      const user = await (this.http.post('/registration', this.user).toPromise() as Promise<User>);
-      this.user.nickname = user.nickname;
-      this.user.role = user.role;
-      this.router.navigate(['/user/login']);
-    } catch (e) {
-      this.user = oldUser;
-    }
-  }
-
-  async invitationalRegistration(nickname: string, username: string, password: string, invitationCode: number) {
-    const oldUser = this.user;
-    this.user = {
-      nickname: null,
-      role: UserRole.User,
-      username: username,
-      password: password,
+    this.invitation = {
+      id: null,
+      invitationCode: invitationCode,
     };
     try {
-      const user = await (this.http.post('/registration', this.user).toPromise() as Promise<User>);
+      const user = await (this.http.post('user/registration', [this.user, this.invitation]).toPromise() as Promise<User>);
       this.user.nickname = user.nickname;
       this.user.role = user.role;
       this.router.navigate(['/user/login']);
@@ -91,5 +79,4 @@ export class AuthService {
       this.user = oldUser;
     }
   }
-
 }

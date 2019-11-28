@@ -5,6 +5,5 @@ export interface Family {
     id: number;
     name: String,
     users: User[];
-    Table: Table[];
-    
+    Table: Table[];    
 }
