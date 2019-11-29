@@ -29,7 +29,7 @@ export class ElementNewComponent implements OnInit {
     this.element = {
       id: null,
       elementName: '',
-      elementStatus: 'UNDONE' as ElementStatus,
+      elementStatus: ElementStatus.UNDONE,
     };
     this.taskId = parseInt(this.route.snapshot.params.id);
     this.userRole = this.auth.userRole;

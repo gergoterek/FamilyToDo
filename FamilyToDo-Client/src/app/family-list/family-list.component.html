@@ -9,12 +9,12 @@
     <ng-container *ngFor = "let user of family?.users">
         <tr >
         <td mat-cell > {{user?.nickname}} </td>
-        <td mat-cell *ngIf="user?.role==='ROLE_ADMIN'">
-             ADMIN 
-        </td>
-        <td mat-cell *ngIf="user?.role==='ROLE_USER'">
-             USER 
-        </td>
+          <td mat-cell *ngIf="user?.role==='ROLE_ADMIN'">
+              ADMIN 
+          </td>
+          <td mat-cell *ngIf="user?.role==='ROLE_USER'">
+              USER 
+          </td>
         </tr>
     </ng-container> 
 

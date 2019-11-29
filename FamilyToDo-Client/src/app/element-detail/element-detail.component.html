@@ -1,28 +1,26 @@
-<div>
-    <li
-        *ngFor = "let element of table.elements"
-     >
-    
-            <div>
-                <span>Name:</span>
-                <span>{{ element?.elementName }}</span>
-            </div>
+<div style="padding-left: 3em; padding-top: 2em;">
+    <table mat-table class="mat-elevation-z8">
+        <tr>
+            <th mat-header-cell> Name </th>
+            <th mat-header-cell> Status </th>
+        </tr>
+        <ng-container
+            *ngFor = "let element of table?.elements"
+        >
+            <tr>
+                <td mat-cell >{{ element?.elementName }}</td>
+                <td mat-cell >{{ element?.elementStatus }}</td>
+            </tr>
+        </ng-container>
+    </table>
             
-            <div>
-                <span>Status:</span>
-                <span>{{ element?.elementStatus }}</span>
-            </div>
-            
-            <div>
-                <button
-                    mat-raised-button
-                    color="accent"
-                    (click)="editTable()"
-                >Edit</button>
-            </div>
-        </li>
-</div>
-
-<div>
-    <app-element-new></app-element-new>
+    <div>
+        <button
+            mat-button
+            style="padding-top: 1em; padding-left: 2em;;"
+            color="accent"
+            (click)="editTable()"
+        >Edit
+        </button>
+    </div>
 </div>
