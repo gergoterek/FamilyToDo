@@ -29,7 +29,6 @@ export class ElementService {
   }
 
   async createElement(element: Element, taskId:number): Promise<any> {
-    console.log('#####################################ezt fogom elküldeni: '+element.elementStatus);
     await this.http.post(`task/${taskId}/elements`, element).toPromise();
   }
 

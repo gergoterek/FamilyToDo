@@ -29,14 +29,13 @@ export class ElementNewComponent implements OnInit {
     this.element = {
       id: null,
       elementName: '',
-      elementStatus: ElementStatus.UNDONE,
+      elementStatus: ElementStatus.Undone,
     };
     this.taskId = parseInt(this.route.snapshot.params.id);
     this.userRole = this.auth.userRole;
   }
 
   async submitElement(element: Element) {
-    console.log('ITT MÉG JÓ : '+element.elementStatus);
     await this.elementService.createElement(element, this.taskId);
     this.router.navigateByUrl('/RefreshComponent', { skipLocationChange: true }).then(() => {
     this.router.navigate(['/', 'tables']);}); 
