@@ -16,6 +16,14 @@ export class ElementFormComponent implements OnInit {
   @Output() elementSubmit: EventEmitter<Element> = new EventEmitter();
 
   formElement : Element;
+
+  statuses = [{
+    label: 'Undone',
+    value: 'UNDONE',
+  }, {
+    label: 'Done',
+    value: 'DONE',
+  }]
   
   constructor() { }
 

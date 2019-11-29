@@ -9,6 +9,9 @@ import { ElementEditComponent } from '../element-edit/element-edit.component';
 import { ElementDetailComponent } from '../element-detail/element-detail.component';
 import { RegistrationComponent } from '../registration/registration.component';
 
+import { UserRole } from 'src/domain/user-role';
+import { RoleGuard } from '../role.guard';
+
 
 const routes: Routes = [
   {
@@ -18,15 +21,27 @@ const routes: Routes = [
   },
   {
     path: 'tables',
-    component: TableListComponent
+    component: TableListComponent,
+    data: {
+      roles: [UserRole.Admin, UserRole.User],
+    },
+    canActivate: [RoleGuard],
   },
   {
     path: 'tables/:id',
-    component: ElementDetailComponent
+    component: ElementDetailComponent,
+    data: {
+      roles: [UserRole.Admin, UserRole.User],
+    },
+    canActivate: [RoleGuard],
   },
   {
     path: 'tables/:id/edit',
-    component: ElementEditComponent
+    component: ElementEditComponent,
+    data: {
+      roles: [UserRole.Admin, UserRole.User],
+    },
+    canActivate: [RoleGuard],
   },
   {
     path: 'login',
@@ -38,7 +53,11 @@ const routes: Routes = [
   },
   {
     path: 'family',
-    component: FamilyListComponent
+    component: FamilyListComponent,
+    data: {
+      roles: [UserRole.Admin, UserRole.User],
+    },
+    canActivate: [RoleGuard],
   },
   {
     path: '**',

@@ -10,16 +10,6 @@ import { Invitation } from 'src/domain/invitation';
 })
 export class AuthService {
 
-  get isLoggedIn(): boolean {
-    return this.user.role !== UserRole.Guest;
-  }
-  get token() {
-    return btoa(`${this.user.username}:${this.user.password}`);
-  }
-
-  get userRole(){
-    return this.user.role;
-  }
   private user: User;
   private invitation: Invitation;
 
@@ -28,6 +18,24 @@ export class AuthService {
     private http: HttpClient
   ) {
     this.logout();
+  }
+
+  get isLoggedIn(): boolean {
+    return this.user.role !== UserRole.Guest;
+  }
+  get token() {
+    return btoa(`${this.user.username}:${this.user.password}`);
+  }
+  get role(): UserRole {
+    return this.user.role;
+  }
+  get userRole(){
+    return this.user.role;
+  }  
+
+  hasRole(roles: UserRole[]): boolean {
+    return roles.some(
+      role => role === this.role);
   }
 
   async login(username: string, password: string) {
