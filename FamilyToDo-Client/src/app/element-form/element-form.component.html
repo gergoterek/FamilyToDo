@@ -1,33 +1,19 @@
 <form #form="ngForm" (ngSubmit)="submitElement(form.form)">
     <div>
         <mat-form-field>
-            <input
-                matInput
-                style="width:5%"
-                placeholder="New element"
-                [(ngModel)]="element.elementName"
-                name="elementName"
-                required
-                #name="ngModel"
-                [disabled]="mode === 'edit'"
-            />
-            <mat-error
-                *ngIf="
+            <input matInput placeholder="New element" [(ngModel)]="element.elementName" name="elementName" required
+                #name="ngModel" [disabled]="mode === 'edit'" type="text" />
+            <mat-error *ngIf="
                 name.invalid &&
                 (name.touched || name.dirty) &&
                 name.errors['required']
-                "
-            >
+                ">
                 Name is required!
             </mat-error>
         </mat-form-field>
 
-        <button 
-            mat-button
-            color="accent"
-            style="width: 0.5%;"
-            >
-             Add</button>
-    </div>        
-    
+        <button mat-button color="accent" style="width: 0.5%;">
+            Add</button>
+    </div>
+
 </form>

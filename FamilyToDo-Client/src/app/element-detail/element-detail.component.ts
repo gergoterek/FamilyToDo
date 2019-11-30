@@ -26,4 +26,8 @@ export class ElementDetailComponent implements OnInit {
     this.router.navigate([
       "tables", this.table.id, "edit"]);
   }
+  goToTables() {
+    this.router.navigate([
+      "tables"]);
+  }
 }

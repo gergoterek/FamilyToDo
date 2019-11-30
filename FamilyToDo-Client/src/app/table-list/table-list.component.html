@@ -1,35 +1,31 @@
-
-<div style="padding-left: 2em; padding-top: 4em;"
-    *ngIf="tableService.allTables.length > 0"
->
-    <ng-container 
-        *ngFor = "let table of tableService.allTables"
-    >
-        <h2>{{table.taskName}}</h2>
-        <div *ngIf="table.elements.length > 0">
-            <table mat-table class="mat-elevation-z8"
-            [routerLink]="['/', 'tables', table.id]">
+<div style="padding-left: 2em; padding-top: 4em;" *ngIf="tableService.allTables.length > 0">
+    <ng-container *ngFor="let table of tableService.allTables">
+        <h2 [routerLink]="['/', 'tables', table.id]">
+            {{table.taskName}}
+        </h2>
+        <div *ngIf="table.elements.length > 0" style="padding-left: 1em;">
+            <table mat-table class="mat-elevation-z8" [routerLink]="['/', 'tables', table.id]" width="12%;">
                 <tr>
                     <th mat-header-cell> Name </th>
                     <th mat-header-cell> Status </th>
                 </tr>
                 <tr *ngFor="let element of table.elements">
-                <td mat-cell > {{element.elementName}} </td>
-                <td mat-cell > {{element.elementStatus}} </td>
+                    <td mat-cell style="padding-left: 0.5em;"> {{element?.elementName}} </td>
+                    <td mat-cell style="text-align: center;">{{ element?.elementStatus }}</td>
                 </tr>
 
             </table>
-            <!-- <app-element-new></app-element-new> -->
         </div>
-        <div *ngIf="table.elements.length === 0">
-            <h4>
+
+        <div *ngIf="table.elements.length === 0" style="padding-left: 1em;">
+            <h4 [routerLink]="['/', 'tables', table.id]">
                 You have no element in the task!
             </h4>
         </div>
-    </ng-container> 
+        <br>
+        <br>
+    </ng-container>
 </div>
-<div>
-<app-table-new></app-table-new>
+<div style="padding-left: 1em;">
+    <app-table-new></app-table-new>
 </div>
-  
-    

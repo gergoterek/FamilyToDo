@@ -1,79 +1,47 @@
 <div style="padding-left: 2em; padding-top: 2em;">
-    <h2>Registration</h2>
+  <h2>Registration</h2>
 </div>
 
 <form #form="ngForm" (ngSubmit)="onSubmit(form.form)">
 
-    <div style="padding-left: 3em; padding-top: 1em;">
-        <mat-form-field>
-            <input
-                matInput
-                placeholder="Nickname"
-                required
-                [(ngModel)]="user.nickname"
-                name="nickname"
-                #nickname="ngModel"
-            />
-            <mat-error *ngIf="nickname.invalid">Nickname is required</mat-error>
-        </mat-form-field>
-    </div>
+  <div style="padding-left: 3em; padding-top: 1em;">
+    <mat-form-field>
+      <input matInput placeholder="Nickname" required [(ngModel)]="user.nickname" name="nickname" #nickname="ngModel" />
+      <mat-error *ngIf="nickname.invalid">Nickname is required</mat-error>
+    </mat-form-field>
+  </div>
 
-<div style="padding-left: 3em;">
-  <mat-form-field>
-    <input
-        matInput
-        placeholder="Username"
-        required
-        [(ngModel)]="user.username"
-        name="username"
-        #username="ngModel"
-    />
-    <mat-error *ngIf="username.invalid">Username is required</mat-error>
-  </mat-form-field>
-</div>
+  <div style="padding-left: 3em;">
+    <mat-form-field>
+      <input matInput placeholder="Username" required [(ngModel)]="user.username" name="username" #username="ngModel" />
+      <mat-error *ngIf="username.invalid">Username is required</mat-error>
+    </mat-form-field>
+  </div>
 
-<div style="padding-left: 3em;">
-  <mat-form-field>
-    <input
-      matInput
-      placeholder="Password"
-      required
-      [type]="hidePassword ? 'password' : 'text'"
-      [(ngModel)]="user.password"
-      name="password"
-      #password="ngModel"
-    />
-    <mat-icon matSuffix (click)="hidePassword = !hidePassword">{{hidePassword ? 'visibility_off' : 'visibility'}}</mat-icon>
-    <mat-error *ngIf="password.invalid">Password is required</mat-error>
-  </mat-form-field>
-</div>
+  <div style="padding-left: 3em;">
+    <mat-form-field>
+      <input matInput placeholder="Password" required [type]="hidePassword ? 'password' : 'text'"
+        [(ngModel)]="user.password" name="password" #password="ngModel" />
+      <mat-icon matSuffix (click)="hidePassword = !hidePassword">{{hidePassword ? 'visibility_off' : 'visibility'}}
+      </mat-icon>
+      <mat-error *ngIf="password.invalid">Password is required</mat-error>
+    </mat-form-field>
+  </div>
 
 
-<div style="padding-left: 3em;">
-        <p>Optional:</p>
-        <mat-form-field>
-          <input
-            matInput
-            placeholder="Invitation code"
-            [(ngModel)]="invitation.invitationCode"
-            name="invitationCode"
-            #invitationCode="ngModel"
-          />
-        </mat-form-field>
-      </div>
+  <div style="padding-left: 3em;">
+    <p>Optional:</p>
+    <mat-form-field>
+      <input matInput placeholder="Invitation code" [(ngModel)]="invitation.invitationCode" name="invitationCode"
+        #invitationCode="ngModel" />
+    </mat-form-field>
+  </div>
 
 
 
-<div style="padding-left: 3em;">
-    <button
-      mat-raised-button
-      type="submit"
-      color="accent"
-      [disabled]="form.form.invalid"
-    >
+  <div style="padding-left: 3em;">
+    <button mat-raised-button type="submit" color="accent" [disabled]="form.form.invalid">
       Register
     </button>
   </div>
 </form>
-
-

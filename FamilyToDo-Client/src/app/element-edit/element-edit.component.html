@@ -1,9 +1,5 @@
 <div style="padding-left: 4em;">
     <h3>Edit element</h3>
-    <app-element-form
-        *ngIf="element"
-        [element]="element"
-        [mode]="'edit'"
-        (elementSubmit)="submitElement($event)"
-    ></app-element-form>
+    <app-element-form *ngIf="element" [element]="element" [mode]="'edit'" (elementSubmit)="submitElement($event)">
+    </app-element-form>
 </div>

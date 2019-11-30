@@ -45,4 +45,11 @@ public class UserController {
         return ResponseEntity.ok(userService.getActUser());
     }
 
+    @GetMapping("/invitation")
+    public Invitation generatedInvitation() {
+        User actUser = userService.getActUser();
+        return familyService.genInvitationCode();
+    }
+
+
 }

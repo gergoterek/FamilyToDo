@@ -3,6 +3,7 @@ import { Table } from 'src/domain/table';
 import { HttpClient } from '@angular/common/http';
 import { Family } from 'src/domain/family';
 import { User } from 'src/domain/user';
+import { Invitation } from 'src/domain/invitation';
 
 @Injectable({
   providedIn: 'root'
@@ -29,6 +30,12 @@ export class FamilyService {
   //   this.users = createFamilyUsers(families);
   // }
 
+  async getInvitation() : Promise<Invitation>{
+    const inv = await (this.http.get('user/invitation')
+      .toPromise() as Promise<any>);
+      return this.createInvitationModel(inv);
+  }
+
   private createFamilyModel(family: any): Family {
     return {
       ...family,
@@ -39,6 +46,13 @@ export class FamilyService {
       ...family,
     } as User[];
   }
+
+  private createInvitationModel(invitation: any): Invitation {
+    return {
+      ...invitation,
+    } as Invitation;
+  }
+  
 }
 
 

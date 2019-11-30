@@ -1,35 +1,31 @@
-<div style="padding-left: 3em; padding-top: 2em;">
-    <table>
-        <table mat-table 
-            class="mat-elevation-z8"
-            width="50%;"
-        >
-            <tr>
-                <th mat-header-cell> Name </th>
-                <th mat-header-cell> Status </th>
-            </tr>
-            <ng-container
-                *ngFor = "let element of table?.elements"
-            >
-                <tr>
-                    <td mat-cell >{{ element?.elementName }}</td>
-                    <td mat-cell >{{ element?.elementStatus }}</td>
-                </tr>
-            </ng-container>
-        </table>
+<div style="padding-left: 1.6em; padding-top: 2em;">
+    <table mat-table class="mat-elevation-z8" width="14%;" *ngIf="table?.elements.length > 0">
         <tr>
-            <app-element-new></app-element-new>            
+            <th mat-header-cell>
+                <h4>Name </h4>
+            </th>
+            <th mat-header-cell>
+                <h4>Status </h4>
+            </th>
         </tr>
+        <ng-container *ngFor="let element of table?.elements">
+            <tr>
+                <td mat-cell style="padding-left: 0.5em;">{{ element?.elementName }}</td>
+                <td mat-cell style="padding-left: 2e; text-align: center;">{{ element?.elementStatus }}</td>
+            </tr>
+        </ng-container>
     </table>
-    
-            
-    <div>
-        <button
-            mat-button
-            style="padding-top: 1em; padding-left: 2em;"
-            color="accent"
-            (click)="editTable()"
-        >Edit
-        </button>
-    </div>
+
+</div>
+<div *ngIf="table?.elements.length === 0" style="padding-left: 2em; padding-top: 2em;">
+    <h4>
+        You have no element in this task! Add a new one!
+    </h4>
+</div>
+<app-element-new></app-element-new>
+<div style="padding-left: 1.7em; padding-top: 1em;">
+    <button mat-raised-button color="primary" (click)="goToTables()">Back to tables
+    </button>
+    <!-- <button mat-raised-button color="accent" (click)="editTable()" *ngIf="table?.elements.length > 0">Edit task
+    </button> -->
 </div>
