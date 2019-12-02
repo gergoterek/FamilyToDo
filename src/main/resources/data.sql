@@ -19,5 +19,5 @@ INSERT INTO element(element_name, element_status, task_id) values('Sajt','UNDONE
 INSERT INTO element(element_name, element_status, task_id) values('Kenyer','DONE',2);
 
 
-INSERT INTO invitation(invitation_code, expire_date, family_id) values(1234, CURRENT_TIMESTAMP()+INTERVAL '7' DAY, 2);
-INSERT INTO invitation(invitation_code, expire_date, family_id) values(789, CURRENT_TIMESTAMP()+INTERVAL '7' DAY, 1);
+--INSERT INTO invitation(invitation_code, expire_date, family_id) values(123456, CURRENT_TIMESTAMP()+INTERVAL '7' DAY, 2);
+--INSERT INTO invitation(invitation_code, expire_date, family_id) values(7891234, CURRENT_TIMESTAMP()+INTERVAL '7' DAY, 1);

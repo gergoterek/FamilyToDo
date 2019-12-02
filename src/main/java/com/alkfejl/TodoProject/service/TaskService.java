@@ -46,8 +46,8 @@ public class TaskService {
             Task task = oTask.get();
             task.getElements().add(element);
             element.setTask(task);
-            Element createdElelement = elementRepository.save(element);
-            return ResponseEntity.ok(createdElelement);
+            Element createdElement = elementRepository.save(element);
+            return ResponseEntity.ok(createdElement);
         } else {
             return ResponseEntity.notFound().build();
         }

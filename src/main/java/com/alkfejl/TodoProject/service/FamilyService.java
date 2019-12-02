@@ -1,9 +1,6 @@
 package com.alkfejl.TodoProject.service;
 
-import com.alkfejl.TodoProject.model.Family;
-import com.alkfejl.TodoProject.model.Invitation;
-import com.alkfejl.TodoProject.model.Task;
-import com.alkfejl.TodoProject.model.User;
+import com.alkfejl.TodoProject.model.*;
 import com.alkfejl.TodoProject.repository.FamilyRepository;
 import com.alkfejl.TodoProject.repository.InvitationRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,6 +8,8 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDateTime;
+import java.time.LocalTime;
 import java.util.Optional;
 
 @Service
@@ -36,10 +35,11 @@ public class FamilyService {
         return actFamily;
     }
 
-    public Invitation genInvitationCode() throws UsernameNotFoundException {
-        User actUser = userService.getActUser();
-        Invitation inv = new Invitation();
-        inv.setFamily(familyService.getMyFamily(actUser));
-        return inv;
+    public ResponseEntity<Invitation> addInvitation(Invitation inv, Family fam) {
+        fam.getInvitations().add(inv);
+        inv.setFamily(fam);
+        inv.setCreatedAt(LocalDateTime.now());
+        Invitation createdInvitation = invitationRepository.save(inv);
+        return ResponseEntity.ok(createdInvitation);
     }
 }

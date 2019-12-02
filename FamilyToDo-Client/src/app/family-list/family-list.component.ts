@@ -1,9 +1,10 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, OnChanges } from '@angular/core';
 import { Table } from 'src/domain/table';
 import { Family } from 'src/domain/family';
 import { TableService } from '../../service/table.service';
 import { FamilyService } from 'src/service/family.service';
 import { Invitation } from 'src/domain/invitation';
+import { Router, Route } from '@angular/router';
 @Component({
   selector: 'app-family-list',
   templateUrl: './family-list.component.html',
@@ -11,47 +12,23 @@ import { Invitation } from 'src/domain/invitation';
 })
 export class FamilyListComponent implements OnInit {
 
-  @Input()
-  set invitationField(code: number) {    
-      this.getInv();
-      this.invitation.invitationCode = code;
-  }
-
   family: Family;
-  invitation: Invitation = {
-    id: null,
-    invitationCode: null,
-  }
-
-
+  
   constructor(
-    private familyService: FamilyService
+    private familyService: FamilyService,
+    private router: Router
   ) { }
 
   async ngOnInit() {
-    this.family = await this.familyService.getFamily();   
-    this.invitation =  await this.familyService.getInvitation(); 
+    this.family = await this.familyService.getFamily(); 
   }
-
-  async getInv() {
-    this.invitation =  await this.familyService.getInvitation();
+  
+  goToInvitation() {
+    this.router.navigate([
+      "family/invitation"]);
   }
 
   
-
-  copyMessage(val: string){
-    const selBox = document.createElement('textarea');
-    selBox.style.position = 'fixed';
-    selBox.style.left = '0';
-    selBox.style.top = '0';
-    selBox.style.opacity = '0';
-    selBox.value = val;
-    document.body.appendChild(selBox);
-    selBox.focus();
-    selBox.select();
-    document.execCommand('copy');
-    document.body.removeChild(selBox);
-  }
 
 
 }

@@ -8,6 +8,7 @@ import { LandingComponent } from '../landing/landing.component';
 import { ElementEditComponent } from '../element-edit/element-edit.component';
 import { ElementDetailComponent } from '../element-detail/element-detail.component';
 import { RegistrationComponent } from '../registration/registration.component';
+import { InvitationComponent } from '../invitation/invitation.component';
 
 import { UserRole } from 'src/domain/user-role';
 import { RoleGuard } from '../role.guard';
@@ -56,6 +57,14 @@ const routes: Routes = [
     component: FamilyListComponent,
     data: {
       roles: [UserRole.Admin, UserRole.User],
+    },
+    canActivate: [RoleGuard],
+  },
+  {
+    path: 'family/invitation',
+    component: InvitationComponent,
+    data: {
+      roles: [UserRole.Admin],
     },
     canActivate: [RoleGuard],
   },

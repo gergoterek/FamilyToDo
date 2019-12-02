@@ -77,6 +77,8 @@ export class AuthService {
     this.invitation = {
       id: null,
       invitationCode: invitationCode,
+      family: null,
+      createdAt: null,
     };
     try {
       const user = await (this.http.post('user/registration', [this.user, this.invitation]).toPromise() as Promise<User>);

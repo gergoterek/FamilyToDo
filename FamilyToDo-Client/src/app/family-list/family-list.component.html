@@ -3,8 +3,8 @@
   <h3>{{family?.name}} family members:</h3>
   <table mat-table class="mat-elevation-z8" width="14%;">
     <tr>
-      <th mat-header-cell> Name </th>
-      <th mat-header-cell> Role </th>
+      <th mat-header-cell style="padding-bottom: 1em;"> Name </th>
+      <th mat-header-cell style="padding-bottom: 1em;"> Role </th>
     </tr>
     <ng-container *ngFor="let user of family?.users">
       <tr>
@@ -23,30 +23,11 @@
   </table>
 </div>
 
-<div style="padding-left: 2em; padding-top: 2em;">
-  <h4>
-    Invite your family into your Family To-Do!
-  </h4>
-  <h5>
-    You can generate a invitational code for your family member.
-    Paste and give him/her the generated private code and after the registration with the code you can use the To-Do
-    together!
-  </h5>
-  <div>
-    <input matInput style="padding-left: 2em; padding-top: 0.5em;" placeholder="Code"
-      [(ngModel)]="invitation.invitationCode" name="incitationCode" #invitationCode="ngModel" />
-  </div>
-  <div>
-    <button mat-button color="primary" (click)="invitationField">
-      Generate a code!
-    </button>
-    <button (click)="copyMessage(invitation.invitationCode)" value="click to copy">Copy code on clipboard</button>
-  </div>
+<div style="padding-left: 3em; padding-top: 2em;">
+  <button mat-raised-button color="primary" (click)="goToInvitation()">
+    Invite your family!
+  </button>
 </div>
-
-
-
-
 
 
 

@@ -1,0 +1,25 @@
+<div style="padding-left: 2em; padding-top: 2em;">
+    <h4>
+        Invite your family into your Family To-Do!
+    </h4>
+    <h5>
+        
+        Copy and send him/her the generated private code and after the registration with the code you can use the To-Do
+        together!
+    </h5>
+    <p style="padding-left: 2em; padding-top: 1em;">
+        Generated code:
+    </p>
+    <input matInput style="border-width: medium ;border: tomato; color:teal; padding-left: 6em" placeholder="Code"
+        [(ngModel)]="invitation.invitationCode" name="incitationCode" #invitationCode="ngModel" />
+
+</div>
+<div style="padding-left: 3em; padding-top: 0.5em;">
+    <button (click)="submitInvitation()" value="click to copy">Submit and copy code on
+        clipboard</button>
+</div>
+
+<!-- <div style="padding-left: 4em; padding-top: 0.5em;">
+    <button (click)="copyMessage(invitation.invitationCode)" value="click to copy">Submit and copy code on
+        clipboard</button>
+</div> -->

@@ -1,9 +1,6 @@
 package com.alkfejl.TodoProject.controller;
 
-import com.alkfejl.TodoProject.model.Element;
-import com.alkfejl.TodoProject.model.Family;
-import com.alkfejl.TodoProject.model.Task;
-import com.alkfejl.TodoProject.model.User;
+import com.alkfejl.TodoProject.model.*;
 import com.alkfejl.TodoProject.service.FamilyService;
 import com.alkfejl.TodoProject.service.TaskService;
 import com.alkfejl.TodoProject.service.UserService;
@@ -56,4 +53,6 @@ public class TaskController {
     public ResponseEntity<Element> addElement(@RequestBody Element element, @PathVariable Integer id) {                                   //Elem hozzáadása a táblához
         return taskService.addElement(element,id);
     }
+
+
 }

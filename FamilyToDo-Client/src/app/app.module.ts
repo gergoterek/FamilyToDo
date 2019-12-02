@@ -29,6 +29,7 @@ import { TableFormComponent } from './table-form/table-form.component';
 import { TableNewComponent } from './table-new/table-new.component';
 import { RegistrationComponent } from './registration/registration.component';
 import { RoleDirective } from './role.directive';
+import { InvitationComponent } from './invitation/invitation.component';
 
 @NgModule({
   declarations: [
@@ -46,6 +47,7 @@ import { RoleDirective } from './role.directive';
     TableNewComponent,
     RegistrationComponent,
     RoleDirective,
+    InvitationComponent,
   ],
   imports: [
     BrowserModule,

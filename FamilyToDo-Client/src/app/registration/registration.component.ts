@@ -18,6 +18,8 @@ export class RegistrationComponent implements OnInit {
   invitation: Invitation = {
     id: null,
     invitationCode: null,
+    family: null,
+    createdAt: null,
   }
 
   user: User = {

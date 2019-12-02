@@ -9,6 +9,8 @@ import javax.persistence.*;
 import java.time.LocalDateTime;
 import java.util.Date;
 
+import static javax.persistence.GenerationType.SEQUENCE;
+
 @Entity
 @Data
 @NoArgsConstructor
@@ -27,5 +29,5 @@ public class Invitation {
 
     @JsonIgnore
     @Column(nullable = false)
-    private LocalDateTime expire_date;
+    private LocalDateTime createdAt;
 }

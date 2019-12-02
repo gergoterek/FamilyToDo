@@ -30,10 +30,14 @@ export class FamilyService {
   //   this.users = createFamilyUsers(families);
   // }
 
-  async getInvitation() : Promise<Invitation>{
-    const inv = await (this.http.get('user/invitation')
-      .toPromise() as Promise<any>);
-      return this.createInvitationModel(inv);
+  // async getInvitation() : Promise<Invitation>{
+  //   const inv = await (this.http.get('user/invitation')
+  //     .toPromise() as Promise<any>);
+  //     return this.createInvitationModel(inv);
+  // }
+
+  async createInvitation(invitation: Invitation): Promise<any> {
+    await this.http.post('user/invitation', invitation).toPromise();
   }
 
   private createFamilyModel(family: any): Family {
