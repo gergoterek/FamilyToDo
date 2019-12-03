@@ -12,7 +12,7 @@
                 <tr *ngFor="let element of table.elements">
                     <td mat-cell style="padding-left: 0.5em;"> {{element?.elementName}} </td>
                     <td mat-cell style="text-align: center;">{{ element?.elementStatus }}</td>
-                    <button (click)="changeStatus($event, element)">Change</button>
+                    <button style="padding-left: 0.5em;" (click)="changeStatus($event, element)">Change</button>
                 </tr>
 
             </table>

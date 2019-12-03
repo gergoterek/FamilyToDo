@@ -11,7 +11,6 @@ import { Invitation } from 'src/domain/invitation';
 export class AuthService {
 
   private user: User;
-  private invitation: Invitation;
 
   constructor(
     private router: Router,
@@ -67,26 +66,32 @@ export class AuthService {
   }
 
 
-  async registration(nickname: string, username: string, password: string) {
+  async registration(nickname: string, username: string, password: string) : Promise<any>{
     this.user = {
       nickname: nickname,
       role: null,
       username: username,
       password: password,
     };
-      await (this.http.post('user/registration', this.user).toPromise() as Promise<User>);
+      await (this.http.post('user/registration', this.user).toPromise() as Promise<User>);      
       this.router.navigate(['/user/login']);
   }
 
 
-  async registrationInv(nickname: string, username: string, password: string, invitation: Invitation) {
+  async registrationInv(nickname: string, username: string, password: string, invitation: Invitation) : Promise<any>{
     this.user = {
       nickname: nickname,
       role: null,
       username: username,
       password: password,
     };
-      await (this.http.post('user/registration/family', [this.user, invitation]).toPromise() as Promise<User>);
+      await (this.http.post('user/registration/family', [this.user, invitation]).toPromise() as Promise<any>);
       this.router.navigate(['/user/login']);
+  }
+
+  private createUserModel(user: any): User {
+    return {
+      ...user,
+    } as User;
   }
 }

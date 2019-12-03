@@ -24,7 +24,7 @@
 </div>
 
 <div style="padding-left: 3em; padding-top: 2em;">
-  <button mat-raised-button color="primary" (click)="goToInvitation()">
+  <button mat-raised-button color="primary" (click)="goToInvitation()" [disabled]="role === 'ROLE_USER'">
     Invite your family!
   </button>
 </div>

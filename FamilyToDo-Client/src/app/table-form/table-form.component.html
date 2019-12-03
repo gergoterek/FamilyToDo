@@ -1,6 +1,6 @@
 <form #form="ngForm" (ngSubmit)="submitTable(form.form)">
     <mat-form-field>
-        <input matInput placeholder="Create new task" [(ngModel)]="table.taskName" name="taskName" required
+        <input matInput  [disabled]="role === 'ROLE_USER'" placeholder="Create new task" [(ngModel)]="table.taskName" name="taskName" required
             #taskName="ngModel" />
     </mat-form-field>
     <button mat-button color="accent" [disabled]="role === 'ROLE_USER'">

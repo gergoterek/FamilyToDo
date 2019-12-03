@@ -5,6 +5,7 @@ import { TableService } from '../../service/table.service';
 import { FamilyService } from 'src/service/family.service';
 import { Invitation } from 'src/domain/invitation';
 import { Router, Route } from '@angular/router';
+import { UserRole } from 'src/domain/user-role';
 @Component({
   selector: 'app-family-list',
   templateUrl: './family-list.component.html',
@@ -12,6 +13,7 @@ import { Router, Route } from '@angular/router';
 })
 export class FamilyListComponent implements OnInit {
 
+  @Input() role: UserRole;
   family: Family;
   
   constructor(
@@ -24,8 +26,7 @@ export class FamilyListComponent implements OnInit {
   }
   
   goToInvitation() {
-    this.router.navigate([
-      "family/invitation"]);
+    this.router.navigate(["family/invitation"]);
   }
 
   
