@@ -35,7 +35,6 @@ export class InvitationComponent implements OnInit {
   }
 
   async submitInvitation() {
-      console.log("code->" +this.invitation.invitationCode);
       await this.familyService.createInvitation(this.invitation);
       this.copyMessage(this.invitation.invitationCode.toString())
       this.router.navigate(['/', 'family']);
