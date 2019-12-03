@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, Route } from '@angular/router';
 import { Invitation } from 'src/domain/invitation';
 import { Family } from 'src/domain/family';
 import { FamilyService } from 'src/service/family.service';
@@ -15,17 +15,17 @@ export class InvitationComponent implements OnInit {
   set invitationField(code: number) {    
   }
 
-  router: Router;
 
   family: Family;
 
   invitation: Invitation;
 
   constructor(
-    private familyService: FamilyService
+    private familyService: FamilyService,
+    private router: Router
   ) { }
 
-  async ngOnInit() {
+  ngOnInit() {
     this.invitation = {
       id: null,
       invitationCode: Math.floor((Math.random() * 100000000) + 1000000),
@@ -34,13 +34,19 @@ export class InvitationComponent implements OnInit {
     }
   }
 
+<<<<<<< HEAD
+  async submitInvitation() {
+      console.log("code->" +this.invitation.invitationCode);
+      await this.familyService.createInvitation(this.invitation);
+      this.copyMessage(this.invitation.invitationCode.toString())
+      this.router.navigate(['/', 'family']);
+=======
   async submitInvitation(invitation: Invitation) {
       await this.familyService.createInvitation(this.invitation);
       this.copyMessage(invitation.invitationCode.toString())
       this.router.navigate(['/', 'family']);    
+>>>>>>> 8b2617e1c358cd5c83a08be2a157a57188dda8de
   }
-
-  
 
   copyMessage(val: string){
     const selBox = document.createElement('textarea');

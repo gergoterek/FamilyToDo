@@ -30,21 +30,11 @@ public class UserController {
     @Autowired
     private BCryptPasswordEncoder passwordEncoder;
 
-
-/*
-    @GetMapping("/family")
-    public List<User> getMyFamilyMembers(){
-        User actUser = userService.getActUser();
-        Family myFamily = familyService.getMyFamily(actUser);
-        return myFamily.getUsers();
-    }
-*/
     @GetMapping("/family")
     public Family getMyFamily(){
         User actUser = userService.getActUser();
         return familyService.getMyFamily(actUser);
     }
-
 
     @PostMapping("registration")
     public ResponseEntity<User> register(@RequestBody User user) {
@@ -53,7 +43,19 @@ public class UserController {
             return ResponseEntity.badRequest().build();
         }
         user.setPassword(passwordEncoder.encode(user.getPassword()));
+        user.setRole(User.Role.ROLE_ADMIN);
+        return ResponseEntity.ok(userRepository.save(user));
+    }
+
+    @PostMapping("registration/family")
+    public ResponseEntity<User> registerToFamily(@RequestBody User user, @RequestBody Invitation inv) {
+        Optional<User> oUser = userRepository.findByUsername(user.getUsername());
+        if (oUser.isPresent()) {
+            return ResponseEntity.badRequest().build();
+        }
+        user.setPassword(passwordEncoder.encode(user.getPassword()));
         user.setRole(User.Role.ROLE_USER);
+        user.setFamily(inv.getFamily());
         return ResponseEntity.ok(userRepository.save(user));
     }
 
@@ -68,6 +70,4 @@ public class UserController {
         Family fam = familyService.getMyFamily(userService.getActUser());
         return familyService.setInvitation(inv, fam);
     }
-
-
 }
