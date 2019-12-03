@@ -23,9 +23,10 @@ public class Invitation {
     @Column(nullable = false)
     private Integer invitationCode;
 
-    @JsonIgnore
+
     @ManyToOne
     private Family family;
+
 
     @JsonIgnore
     private LocalDateTime createdAt;

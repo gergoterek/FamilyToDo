@@ -28,17 +28,24 @@ export class InvitationComponent implements OnInit {
   ngOnInit() {
     this.invitation = {
       id: null,
-      invitationCode: Math.floor((Math.random() * 10000000) + 100000),
+      invitationCode: Math.floor((Math.random() * 100000000) + 1000000),
       family: null,
       createdAt: null,
     }
   }
 
+<<<<<<< HEAD
   async submitInvitation() {
       console.log("code->" +this.invitation.invitationCode);
       await this.familyService.createInvitation(this.invitation);
       this.copyMessage(this.invitation.invitationCode.toString())
       this.router.navigate(['/', 'family']);
+=======
+  async submitInvitation(invitation: Invitation) {
+      await this.familyService.createInvitation(this.invitation);
+      this.copyMessage(invitation.invitationCode.toString())
+      this.router.navigate(['/', 'family']);    
+>>>>>>> 8b2617e1c358cd5c83a08be2a157a57188dda8de
   }
 
   copyMessage(val: string){

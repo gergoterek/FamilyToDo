@@ -36,22 +36,6 @@ public class UserService {
         return ResponseEntity.ok(userRepository.save(user));
     }
 
-    public ResponseEntity<User> invitationRegister(User user, Invitation invitation) {
-        Optional<User> oUser = userRepository.findByUsername(user.getUsername());
-        if (oUser.isPresent()) {
-            return ResponseEntity.badRequest().build();
-        }
-
-        List<Invitation> inv = invitationRepository.findAllByInvitationCode(invitation.getInvitationCode());
-
-        if (inv.size()==0) {
-            return ResponseEntity.badRequest().build();
-        }
-        user.setPassword(passwordEncoder.encode(user.getPassword()));
-        user.setRole(User.Role.ROLE_USER);
-        return ResponseEntity.ok(userRepository.save(user));
-    }
-
     public User getActUser() throws UsernameNotFoundException {
         Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         String userName = ((UserDetails)principal).getUsername();

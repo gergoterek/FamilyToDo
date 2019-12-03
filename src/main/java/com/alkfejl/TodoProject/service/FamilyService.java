@@ -35,8 +35,7 @@ public class FamilyService {
         return actFamily;
     }
 
-    public ResponseEntity<Invitation> addInvitation(Invitation inv, Family fam) {
-        fam.getInvitations().add(inv);
+    public ResponseEntity<Invitation> setInvitation(Invitation inv, Family fam) {
         inv.setFamily(fam);
         inv.setCreatedAt(LocalDateTime.now());
         Invitation createdInvitation = invitationRepository.save(inv);
