@@ -9,9 +9,8 @@ import { Invitation } from 'src/domain/invitation';
   providedIn: 'root'
 })
 export class AuthService {
-
+  public wantRegister : Boolean = false;
   private user: User;
-
   constructor(
     private router: Router,
     private http: HttpClient
@@ -23,7 +22,12 @@ export class AuthService {
     return this.user.role !== UserRole.Guest;
   }
   get token() {
-    return btoa(`${this.user.username}:${this.user.password}`);
+    if(!this.wantRegister){
+      return 'Basic '+btoa(`${this.user.username}:${this.user.password}`);''
+    }else{
+      return '';//'Basic '+btoa(`${this.user.username}:${this.user.password}`);''
+    }
+    
   }
   get role(): UserRole {
     return this.user.role;
@@ -31,6 +35,10 @@ export class AuthService {
   get userRole(){
     return this.user.role;
   }  
+
+  get getAuth(): string{
+    return "'Authorization', `Basic ${this.auth.token}`"
+  }
 
   hasRole(roles: UserRole[]): boolean {
     return roles.some(
@@ -67,25 +75,29 @@ export class AuthService {
 
 
   async registration(nickname: string, username: string, password: string) : Promise<any>{
+    this.wantRegister = true;
     this.user = {
       nickname: nickname,
       role: null,
       username: username,
       password: password,
     };
-      await (this.http.post('user/registration', this.user).toPromise() as Promise<User>);      
+      await (this.http.post('user/registration', this.user).toPromise() as Promise<User>);
+      this.wantRegister = false;
       this.router.navigate(['/user/login']);
   }
 
 
   async registrationInv(nickname: string, username: string, password: string, invitation: Invitation) : Promise<any>{
+    this.wantRegister = true;
     this.user = {
       nickname: nickname,
       role: null,
       username: username,
       password: password,
     };
-      await (this.http.post('user/registration/family', [this.user, invitation]).toPromise() as Promise<any>);
+      await (this.http.post(`user/registration/family/${invitation.invitationCode}`,this.user).toPromise() as Promise<User>);
+      this.wantRegister = false;
       this.router.navigate(['/user/login']);
   }
 

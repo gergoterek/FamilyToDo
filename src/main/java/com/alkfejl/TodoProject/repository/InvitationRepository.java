@@ -13,6 +13,7 @@ import java.util.Optional;
 public interface InvitationRepository extends CrudRepository<Invitation, Integer> {
     //Optional<Invitation> findAllByInvitationCode(Integer id);
     List<Invitation> findAll();
+    Invitation findByInvitationCode(Integer invCode);
 
     //List<Invitation> findAll();
 
