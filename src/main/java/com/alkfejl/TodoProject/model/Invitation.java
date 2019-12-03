@@ -27,6 +27,7 @@ public class Invitation {
     @ManyToOne
     private Family family;
 
-    @Column
+
+    @JsonIgnore
     private LocalDateTime createdAt;
 }

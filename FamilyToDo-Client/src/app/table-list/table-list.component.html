@@ -4,7 +4,7 @@
             {{table.taskName}}
         </h2>
         <div *ngIf="table.elements.length > 0" style="padding-left: 1em;">
-            <table mat-table class="mat-elevation-z8" [routerLink]="['/', 'tables', table.id]" width="12%;">
+            <table mat-table class="mat-elevation-z8" width="12%;">
                 <tr>
                     <th mat-header-cell style="padding-bottom: 1em;"> Name </th>
                     <th mat-header-cell style="padding-bottom: 1em;"> Status </th>
@@ -12,6 +12,7 @@
                 <tr *ngFor="let element of table.elements">
                     <td mat-cell style="padding-left: 0.5em;"> {{element?.elementName}} </td>
                     <td mat-cell style="text-align: center;">{{ element?.elementStatus }}</td>
+                    <button (click)="changeStatus($event, element)">Change</button>
                 </tr>
 
             </table>
