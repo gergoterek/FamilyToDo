@@ -33,7 +33,7 @@ export class ElementService {
   }
 
   async modifyElement(element: Element): Promise<any> {
-    await this.http.patch(`elements/${element.id}`, element).toPromise();
+    await this.http.patch(`task/elements/${element.id}`, element).toPromise();
   }
 
   private createElementModel(element: any): Element {

@@ -52,4 +52,16 @@ public class TaskService {
             return ResponseEntity.notFound().build();
         }
     }
+
+    public ResponseEntity<Element> modifyElement( Element element, Integer id) {
+        Optional<Element> oElement = elementRepository.findById(id);
+        if (oElement.isPresent()) {
+            Element createdElement = oElement.get();
+            createdElement.setElementStatus(element.getElementStatus());
+            elementRepository.save(createdElement);
+            return ResponseEntity.ok(createdElement);
+        } else {
+            return ResponseEntity.notFound().build();
+        }
+    }
 }

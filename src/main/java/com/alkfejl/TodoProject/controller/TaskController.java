@@ -54,5 +54,9 @@ public class TaskController {
         return taskService.addElement(element,id);
     }
 
+    @PatchMapping("/elements/{id}")
+    public ResponseEntity<Element> modifyElement(@RequestBody Element element, @PathVariable Integer id){
+        return taskService.modifyElement(element, id);
+    }
 
 }

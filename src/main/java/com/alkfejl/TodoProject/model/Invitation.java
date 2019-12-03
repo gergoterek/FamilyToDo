@@ -28,6 +28,5 @@ public class Invitation {
     private Family family;
 
     @JsonIgnore
-    @Column(nullable = false)
     private LocalDateTime createdAt;
 }
