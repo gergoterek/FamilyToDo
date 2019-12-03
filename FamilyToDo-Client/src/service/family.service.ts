@@ -14,6 +14,8 @@ export class FamilyService {
   // family: Family[] = [];
   // myFamily: Family[] = this.family;
 
+  invitation: Invitation;
+
   constructor(
     private http: HttpClient
   ) { }

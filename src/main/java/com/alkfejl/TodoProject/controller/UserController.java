@@ -66,7 +66,7 @@ public class UserController {
     @PostMapping("/invitation")
     public ResponseEntity<Invitation> addInvitation(@RequestBody Invitation inv) {
         Family fam = familyService.getMyFamily(userService.getActUser());
-        return familyService.addInvitation(inv, fam);
+        return familyService.setInvitation(inv, fam);
     }
 
 

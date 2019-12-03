@@ -28,17 +28,16 @@ export class InvitationComponent implements OnInit {
   async ngOnInit() {
     this.invitation = {
       id: null,
-      invitationCode: Math.floor((Math.random() * 10000000) + 100000),
+      invitationCode: Math.floor((Math.random() * 100000000) + 1000000),
       family: null,
       createdAt: null,
     }
   }
 
   async submitInvitation(invitation: Invitation) {
-      await this.familyService.createInvitation(invitation);
+      await this.familyService.createInvitation(this.invitation);
       this.copyMessage(invitation.invitationCode.toString())
-      this.router.navigate(['/', 'family']);
-    
+      this.router.navigate(['/', 'family']);    
   }
 
   
