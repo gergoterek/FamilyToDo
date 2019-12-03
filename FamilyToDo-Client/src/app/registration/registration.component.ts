@@ -15,32 +15,41 @@ export class RegistrationComponent implements OnInit {
 
   hidePassword = true;
 
-  invitation: Invitation = {
-    id: null,
-    invitationCode: null,
-    family: null,
-    createdAt: null,
-  }
+  invitation: Invitation;
 
-  user: User = {
-    nickname: null,
-    username: '',
-    password: '',
-    role: UserRole.Guest,    
-  };
+  user: User ;
   
 
   constructor(
     private authService: AuthService,
     private router: Router,
+    
   ) { }
 
-  ngOnInit() {
+  ngOnInit(){
+    this.user = {
+      nickname: null,
+      username: '',
+      password: '',
+      role: UserRole.Guest,    
+    },
+    this.invitation= {
+      id: null,
+      invitationCode: null,
+      family: null,
+      createdAt: null,
+    }
+  
   }
 
   onSubmit(form: FormGroup) {
     const user = form.value as User;
-    this.authService.registration(user.nickname, user.username, user.password, this.invitation.invitationCode);
+    if(this.invitation.invitationCode === null){
+      this.authService.registration(user.nickname, user.username, user.password);
+    }
+    else{
+      this.authService.registrationInv(user.nickname, user.username, user.password, this.invitation);
+    }
   }
   
 }

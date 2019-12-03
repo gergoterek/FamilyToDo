@@ -66,7 +66,7 @@ export class AuthService {
      this.router.navigate(['/login']);
   }
 
-  async registration(nickname: string, username: string, password: string, invitationCode: number) {
+  async registration(nickname: string, username: string, password: string) {
     const oldUser = this.user;
     this.user = {
       nickname: nickname,
@@ -74,14 +74,26 @@ export class AuthService {
       username: username,
       password: password,
     };
-    this.invitation = {
-      id: null,
-      invitationCode: invitationCode,
-      family: null,
-      createdAt: null,
+    try {
+      const user = await (this.http.post('user/registration', this.user).toPromise() as Promise<User>);
+      this.user.nickname = user.nickname;
+      this.user.role = user.role;
+      this.router.navigate(['/user/login']);
+    } catch (e) {
+      this.user = oldUser;
+    }
+  }
+
+  async registrationInv(nickname: string, username: string, password: string, invitation: Invitation) {
+    const oldUser = this.user;
+    this.user = {
+      nickname: nickname,
+      role: UserRole.User,
+      username: username,
+      password: password,
     };
     try {
-      const user = await (this.http.post('user/registration', [this.user, this.invitation]).toPromise() as Promise<User>);
+      const user = await (this.http.post('user/registration/family', [this.user, invitation]).toPromise() as Promise<User>);
       this.user.nickname = user.nickname;
       this.user.role = user.role;
       this.router.navigate(['/user/login']);
