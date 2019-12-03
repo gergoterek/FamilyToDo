@@ -36,8 +36,9 @@ export class FamilyService {
   //     return this.createInvitationModel(inv);
   // }
 
-  async createInvitation(invitation: Invitation): Promise<any> {
-    await this.http.post('user/invitation', invitation).toPromise();
+  async createInvitation(invitation: Invitation): Promise<Invitation> {
+    await this.http.post('user/invitation', invitation).toPromise() as Promise<any>;
+    return this.createInvitationModel(invitation);
   }
 
   private createFamilyModel(family: any): Family {

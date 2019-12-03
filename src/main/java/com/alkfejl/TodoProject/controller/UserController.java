@@ -68,6 +68,4 @@ public class UserController {
         Family fam = familyService.getMyFamily(userService.getActUser());
         return familyService.addInvitation(inv, fam);
     }
-
-
 }
